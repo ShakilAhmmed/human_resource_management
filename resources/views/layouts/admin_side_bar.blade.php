@@ -17,7 +17,7 @@
                     <h3 class="menu-title">UI elements</h3><!-- /.menu-title -->
 
                     <li>
-                        <a href="widgets.html"> <i class="menu-icon ti-notepad"></i>DEPARTMENT </a>
+                        <a href="/department"> <i class="menu-icon ti-notepad"></i>DEPARTMENT </a>
                     </li>
 
                     <li>
