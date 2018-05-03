@@ -20,3 +20,6 @@ Route::get('/admin','HomeController@index');
 
 
 Route::resource('/department','DepartmentController');
+//start expense
+Route::resource('/expense','ExpenseController');
+//end expense
