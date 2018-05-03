@@ -2,16 +2,19 @@
 @section('title','Department')
 @section('breadcrumbs','Department')
 @section('main_content')
+<div style="    margin-left: 67px;     margin-top: 34px;" >
+  <h2><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;ADD DEPARTMENT</h2> <!-- Tab Heading  -->
+    <p title="Transport Details">  Add Department Details</p> <!-- Transport Details -->
 
-
-     <div class="col-lg-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h4>DEPARTMENT</h4>
-                                </div>
-                                <div class="card-body">
+     </div>
+         <br>
+     <div class="col-lg-12" style="width: 1509px;
+    margin-left: 43px;
+    margin-top: -39px;">
+                          
+                               
                                      <!-- tab -->
-                                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                        <ul class="nav nav-pills" id="myTab" role="tablist" style="    margin-left: 16px;" >
                                             <li class="nav-item">
                                                 <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">ADD DEPARTMENT</a>
                                             </li>
@@ -22,7 +25,13 @@
                                     <!-- tab end -->
                         <div class="tab-content pl-3 p-1" id="myTabContent">
                         <!-- first tab -->
+                        
                         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <div class="card">
+                                <div class="card-header">
+                                    <h4>DEPARTMENT</h4>
+                                </div>
+                                 <div class="card-body">
                                              <div class="col-xs-12 col-sm-12">
 
                             <div class="card-body card-block">
@@ -77,9 +86,16 @@
                             </div>
                     </div>                     
             </div>
+            </div>
+            </div>
           <!--   end first tab -->
             <!-- second-tab -->
                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                          <div class="card">
+                                <div class="card-header">
+                                    <h4>DEPARTMENT</h4>
+                                </div>
+                                <div class="card-body">
                                               <div class="col-md-12">
                                                   <table id="bootstrap-data-table" class="table table-striped table-bordered">
                                                     <thead>
@@ -441,6 +457,7 @@
                                             <!-- end second tab -->
                                         </div>
                                 </div>
+                                </div>
                             </div>
-                        </div>
+                       
 @stop
