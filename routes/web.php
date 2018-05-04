@@ -20,6 +20,7 @@ Route::get('/admin','HomeController@index');
 
 
 Route::resource('/department','DepartmentController');
+
 //start expense
 Route::resource('/expense','ExpenseController');
 //end expense
@@ -31,3 +32,9 @@ Route::resource('/leave_type','LeaveTypeController');
 //start leave
 Route::resource('/leave','LeaveController');
 //end leave
+
+
+
+//DESIGNATION
+Route::resource('/designation','DesignationController');
+
