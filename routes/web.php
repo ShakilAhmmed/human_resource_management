@@ -23,3 +23,11 @@ Route::resource('/department','DepartmentController');
 //start expense
 Route::resource('/expense','ExpenseController');
 //end expense
+
+//start leavetype
+Route::resource('/leave_type','LeaveTypeController');
+//end leavetype
+
+//start leave
+Route::resource('/leave','LeaveController');
+//end leave
