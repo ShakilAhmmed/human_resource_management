@@ -21,7 +21,7 @@
                     </li>
 
                     <li>
-                        <a href="widgets.html"> <i class="menu-icon ti-panel"></i>DESIGNATION </a>
+                        <a href="/designation"> <i class="menu-icon ti-panel"></i>DESIGNATION </a>
                     </li>
 
                    <li class="menu-item-has-children dropdown">

@@ -20,3 +20,7 @@ Route::get('/admin','HomeController@index');
 
 
 Route::resource('/department','DepartmentController');
+
+
+//DESIGNATION
+Route::resource('/designation','DesignationController');

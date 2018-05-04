@@ -13,7 +13,8 @@
     <script src="{{asset('admin_asset/assets/js/lib/vector-map/jquery.vmap.sampledata.js')}}"></script>
     <script src="{{asset('admin_asset/assets/js/lib/vector-map/country/jquery.vmap.world.js')}}"></script>
 
-
+   
+    <script src="https://use.fontawesome.com/c6a0be9dda.js"></script>
     <script src="{{asset('admin_asset/assets/js/lib/data-table/datatables.min.js')}}"></script>
     <script src="{{asset('admin_asset/assets/js/lib/data-table/dataTables.bootstrap.min.js')}}"></script>
     <script src="{{asset('admin_asset/assets/js/lib/data-table/dataTables.buttons.min.js')}}"></script>
@@ -47,4 +48,17 @@
         $(document).ready(function() {
           $('#bootstrap-data-table-export').DataTable();
         } );
+
+        function checkdelete()
+        {
+            var chk=confirm('Are You Sure?');
+            if(chk)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     </script>
