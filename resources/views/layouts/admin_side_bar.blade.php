@@ -87,7 +87,7 @@
                     </li>
 
                      <li>
-                        <a href="widgets.html"> <i class="menu-icon ti-email"></i>EXPENSE </a>
+                        <a href="/expense"> <i class="menu-icon ti-email"></i>EXPENSE </a>
                     </li>
 
                      <li>
