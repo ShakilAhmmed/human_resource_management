@@ -36,8 +36,8 @@
                    <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>RECRUITMENT</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-table"></i><a href="tables-basic.html">VACANCIES</a></li>
-                            <li><i class="fa fa-table"></i><a href="tables-data.html">APPLICATIONS</a></li>
+                            <li><i class="fa fa-table"></i><a href="/vacancies">VACANCIES</a></li>
+                            <li><i class="fa fa-table"></i><a href="/applications">APPLICATIONS</a></li>
                         </ul>
                     </li>
 

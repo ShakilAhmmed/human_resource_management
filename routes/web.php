@@ -20,3 +20,9 @@ Route::get('/admin','HomeController@index');
 
 
 Route::resource('/department','DepartmentController');
+
+
+//For RECRUITMENT Routes
+Route::resource('/vacancies','VacanciesController');
+Route::resource('/applications','ApplicationsController');
+//End Of RECRUITMENT Routes
