@@ -38,3 +38,5 @@ Route::resource('/leave','LeaveController');
 //DESIGNATION
 Route::resource('/designation','DesignationController');
 
+//EMPLOYEE
+Route::resource('/employee','EmployeeController');

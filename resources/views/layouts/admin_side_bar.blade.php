@@ -27,7 +27,7 @@
                    <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>EMPLOYEE</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-table"></i><a href="tables-basic.html">ADD EMPLOYEE</a></li>
+                            <li><i class="fa fa-table"></i><a href="/employee">ADD EMPLOYEE</a></li>
                             <li><i class="fa fa-table"></i><a href="tables-data.html">EMPLOYEE LIST</a></li>
                         </ul>
                     </li>

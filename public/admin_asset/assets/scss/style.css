@@ -21,6 +21,21 @@
        .dropdown_test li {display: inline;}
        .dropdown_test li a{padding: 10px; background: #30336b;color: #fff; border-radius: 5px}
        .dropdown_test li a:hover{padding: 5px; background: #4834d4;color: #fff; border-radius: 5px}
+
+         .view{
+      border: 1px solid white;
+      width: 198px;
+      height: 49px;
+      padding: 5px;
+      text-align: center;
+      color: white;
+      margin-left: 18px;
+      background: black;
+  }
+  .view:hover{
+    background: white;
+    color: black;
+  }
 .gaugejs-wrap {
   position: relative;
   margin: 0 auto; }
