@@ -21,6 +21,7 @@ Route::get('/admin','HomeController@index');
 
 Route::resource('/department','DepartmentController');
 
+
 //start expense
 Route::resource('/expense','ExpenseController');
 //end expense
@@ -40,3 +41,10 @@ Route::resource('/designation','DesignationController');
 
 //EMPLOYEE
 Route::resource('/employee','EmployeeController');
+
+
+//For RECRUITMENT Routes
+Route::resource('/vacancies','VacanciesController');
+Route::resource('/applications','ApplicationsController');
+//End Of RECRUITMENT Routes
+
