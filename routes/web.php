@@ -48,3 +48,10 @@ Route::resource('/vacancies','VacanciesController');
 Route::resource('/applications','ApplicationsController');
 //End Of RECRUITMENT Routes
 
+
+
+//For Task Route
+
+Route::resource('/task','TaskController');
+
+//End Of Task Route
