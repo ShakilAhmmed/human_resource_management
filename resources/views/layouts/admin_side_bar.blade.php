@@ -76,8 +76,8 @@
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>TASK</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-table"></i><a href="tables-basic.html">TASK LIST</a></li>
-                            <li><i class="fa fa-table"></i><a href="tables-data.html">NEW TASK</a></li>
+                            <li><i class="fa fa-table"></i><a href="/task/create">TASK LIST</a></li>
+                            <li><i class="fa fa-table"></i><a href="/task">NEW TASK</a></li>
                         </ul>
                     </li>
 
