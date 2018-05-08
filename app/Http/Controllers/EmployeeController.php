@@ -117,36 +117,40 @@ class EmployeeController extends Controller
              $login_details->role=$request->role;
              $login_details->save();
              //job history
-             for($i=0;$i<count($request->company_name);$i++)
-             {
-                $job_history     =new JobHistoryModel;
-                $job_history->employee_job_history_id=time()+$i;
-                $job_history->employee_personal_details_id=time();
-                $job_history->company_name=$request->company_name[$i];
-                $job_history->job_department=$request->job_department[$i];
-                $job_history->designation=$request->designation[$i];
-                $job_history->start_date=$request->start_date[$i];
-                $job_history->end_date=$request->end_date[$i];
-                $job_history->save();
-             }
+             if(!empty($request->company_name)):
+                 for($i=0;$i<count($request->company_name);$i++)
+                 {
+                    $job_history     =new JobHistoryModel;
+                    $job_history->employee_job_history_id=time()+$i;
+                    $job_history->employee_personal_details_id=time();
+                    $job_history->company_name=$request->company_name[$i];
+                    $job_history->job_department=$request->job_department[$i];
+                    $job_history->designation=$request->designation[$i];
+                    $job_history->start_date=$request->start_date[$i];
+                    $job_history->end_date=$request->end_date[$i];
+                    $job_history->save();
+                 }
+            endif;
              
 
              //documents
-            for($j=0;$j<count($request->document_file_name);$j++)
-              {
-                  $documents       =new DocumentsModel;
-                  $documents->employee_documents_id=time()+$j;
-                  $documents->employee_personal_details_id=time();
-                  $documents->document_file_name=$request->document_file_name[$j];
-                 if(@$request->document[$j]):
-                     $document_file_path="admin_asset/backend/employee/documents/";
-                     $document_file=time()+$j.".jpg";
-                     $documents->document=$document_file_path.$document_file;
-                     $request->document[$j]->move($document_file_path,$document_file);
-                 endif;
-                 $documents->save();
+            if(!empty($request->document_file_name)):
+                for($j=0;$j<count($request->document_file_name);$j++)
+                  {
+                      $documents       =new DocumentsModel;
+                      $documents->employee_documents_id=time()+$j;
+                      $documents->employee_personal_details_id=time();
+                      $documents->document_file_name=$request->document_file_name[$j];
+                     if(@$request->document[$j]):
+                         $document_file_path="admin_asset/backend/employee/documents/";
+                         $document_file=time()+$j.".jpg";
+                         $documents->document=$document_file_path.$document_file;
+                         $request->document[$j]->move($document_file_path,$document_file);
+                     endif;
+                     $documents->save();
 
-              }
+                  }
+           endif;
 
 
         Session::flash('success','New Employee Added Successfully');

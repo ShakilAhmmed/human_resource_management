@@ -69,22 +69,22 @@ class CreateEmployee extends Migration
 
               //for job history
          Schema::create('employee_job_history', function (Blueprint $table) {
-            $table->increments('employee_job_history_id');
-            $table->string("employee_personal_details_id");
-            $table->string("company_name");
-            $table->string("job_department");
-            $table->string("designation");
-            $table->string("start_date");
-            $table->string("end_date");
+            $table->increments('employee_job_history_id')->nullable();
+            $table->string("employee_personal_details_id")->nullable();
+            $table->string("company_name")->nullable();
+            $table->string("job_department")->nullable();
+            $table->string("designation")->nullable();
+            $table->string("start_date")->nullable();
+            $table->string("end_date")->nullable();
             $table->timestamps();
         });
 
                     //for documents
          Schema::create('employee_documents', function (Blueprint $table) {
-            $table->increments('employee_documents_id');
-            $table->string("employee_personal_details_id");
-            $table->string("document_file_name");
-            $table->string("document");
+            $table->increments('employee_documents_id')->nullable();
+            $table->string("employee_personal_details_id")->nullable();
+            $table->string("document_file_name")->nullable();
+            $table->string("document")->nullable();
             $table->timestamps();
         });
 
