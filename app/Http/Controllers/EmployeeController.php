@@ -11,6 +11,7 @@ use App\JobHistoryModel;
 use App\DocumentsModel;
 use Validator;
 use Session;
+use File;
 class EmployeeController extends Controller
 {
     /**
@@ -30,7 +31,10 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        //
+        $employee_data=PersonalDetailsModel::join('employee_company_details','employee_company_details.employee_personal_details_id','=','employee_personal_details.employee_personal_details_id')
+            ->join('employee_login_details','employee_login_details.employee_personal_details_id','=','employee_personal_details.employee_personal_details_id')
+            ->get();
+        return view('Admin.Employee.employee_list',['employee_data'=>$employee_data]);
     }
 
     /**
@@ -85,7 +89,7 @@ class EmployeeController extends Controller
                 {
 
                     $filepath='admin_asset/backend/employee/';
-                    $file_name=$request->employee_code."."."jpg";
+                    $file_name=time()."."."jpg";
                     $personal_details->profile_image=$filepath.$file_name;
                     $request->file('profile_image')->move($filepath,$file_name);
                 }
@@ -121,7 +125,7 @@ class EmployeeController extends Controller
                  for($i=0;$i<count($request->company_name);$i++)
                  {
                     $job_history     =new JobHistoryModel;
-                    $job_history->employee_job_history_id=time()+$i;
+                    $job_history->employee_job_history_id=time();
                     $job_history->employee_personal_details_id=time();
                     $job_history->company_name=$request->company_name[$i];
                     $job_history->job_department=$request->job_department[$i];
@@ -138,7 +142,7 @@ class EmployeeController extends Controller
                 for($j=0;$j<count($request->document_file_name);$j++)
                   {
                       $documents       =new DocumentsModel;
-                      $documents->employee_documents_id=time()+$j;
+                      $documents->employee_documents_id=time();
                       $documents->employee_personal_details_id=time();
                       $documents->document_file_name=$request->document_file_name[$j];
                      if(@$request->document[$j]):
@@ -203,6 +207,20 @@ class EmployeeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $document_file_name="admin_asset/backend/employee/documents/".$id.".jpg";
+        $employee_file_name="admin_asset/backend/employee/".$id.".jpg";
+
+        PersonalDetailsModel::where('employee_personal_details_id',$id)->delete();
+        CompanyDetailsModel::where('employee_personal_details_id',$id)->delete();
+        LoginDetailsModel::where('employee_personal_details_id',$id)->delete();
+        BankAccountDetailsModel::where('employee_personal_details_id',$id)->delete();
+        JobHistoryModel::where('employee_personal_details_id',$id)->delete();
+        DocumentsModel::where('employee_personal_details_id',$id)->delete();
+
+        File::delete($document_file_name);
+        File::delete($employee_file_name);
+
+        Session::flash('success','Employee Deleted Successfully');
+        return back();
     }
 }
