@@ -68,8 +68,8 @@
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>HOLIDAY</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-table"></i><a href="tables-basic.html">HOLIDAY LIST</a></li>
-                            <li><i class="fa fa-table"></i><a href="tables-data.html">NEW HOLIDAY</a></li>
+                            <li><i class="fa fa-table"></i><a href="/holiday/create">HOLIDAY LIST</a></li>
+                            <li><i class="fa fa-table"></i><a href="/holiday">NEW HOLIDAY</a></li>
                         </ul>
                     </li>
 

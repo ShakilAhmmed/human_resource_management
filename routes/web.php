@@ -33,6 +33,10 @@ Route::resource('/leave_type','LeaveTypeController');
 Route::resource('/leave','LeaveController');
 //end leave
 
+//start holiday
+Route::resource('/holiday','HolidayController');
+//end holiday
+
 
 
 //DESIGNATION
