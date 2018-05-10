@@ -45,10 +45,6 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-
-
-       
-
         $personal_details=new PersonalDetailsModel;
         $company_details =new CompanyDetailsModel;
         $bank_details    =new BankAccountDetailsModel;
@@ -173,7 +169,15 @@ class EmployeeController extends Controller
      */
     public function show($id)
     {
-        //
+        $employee_data=CompanyDetailsModel::find($id);
+        if($employee_data->status=='Active'):
+            $employee_data->update(['status'=>'Inactive']);
+        else:
+            $employee_data->update(['status'=>'Active']);
+        endif;
+        Session::flash('success','Employee Status Changed Successfully');
+        return back();
+
     }
 
     /**
