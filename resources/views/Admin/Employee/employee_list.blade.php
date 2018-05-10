@@ -74,7 +74,7 @@
                              <td id="my_align" class="display_status">
                               <div style="display:inline-flex">
 
-                                {{Form::open(['url'=>"/" ,'method'=>'GET'])}}
+                                {{Form::open(['url'=>"employee/$employee_data_value->employee_personal_details_id/edit" ,'method'=>'GET'])}}
                                 {{Form::submit('Edit',['class'=>'btn btn-primary'])}}
                                 {{Form::close()}}
 
