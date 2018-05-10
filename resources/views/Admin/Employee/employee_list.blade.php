@@ -82,11 +82,13 @@
                                 {{Form::submit('Delete',['class'=>'btn btn-danger','onclick'=>'checkdelete()'])}}
                                 {{Form::close()}}
 
-
-                                {{Form::open(['url'=>"" ,'method'=>'GET'])}}
+                     {{Form::open(['url'=>"/employee/$employee_data_value->employee_personal_details_id" ,'method'=>'GET'])}}
+                              @if($employee_data_value->status=='Active')
+                                {{Form::submit('Inactive',['class'=>'btn btn-warning'])}}
+                             @else
                                 {{Form::submit('Active',['class'=>'btn btn-success'])}}
-                                {{Form::close()}}
-                                
+                             @endif
+                       {{Form::close()}}
 
                               </div>
                             </td>
