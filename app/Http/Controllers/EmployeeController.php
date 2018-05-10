@@ -188,7 +188,13 @@ class EmployeeController extends Controller
      */
     public function edit($id)
     {
-        //
+         $employee_data=PersonalDetailsModel::join('employee_company_details','employee_company_details.employee_personal_details_id','=','employee_company_details.employee_personal_details_id')
+         ->join('employee_bankaccount_details','employee_bankaccount_details.employee_personal_details_id','=','employee_personal_details.employee_personal_details_id')
+         ->join('employee_login_details','employee_login_details.employee_personal_details_id','=','employee_personal_details.employee_personal_details_id')
+         ->first();
+         return view('Admin.Employee.Edit.employee_edit',['employee_data'=>$employee_data]);
+
+
     }
 
     /**
@@ -200,7 +206,70 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $personal_details=PersonalDetailsModel::where('employee_personal_details_id',$id)->first();
+         if($request->hasfile('profile_image'))
+            {
+
+                $filepath='admin_asset/backend/employee/';
+                $file_name=time()."."."jpg";
+                $request->file('profile_image')->move($filepath,$file_name);
+                $personal_details->update(['profile_image'=>$filepath.$file_name]);
+            }
+        $personal_details->update([
+                'name'=>$request->name,
+                'father_name'=>$request->father_name,
+                'date_of_bith'=>$request->date_of_bith,
+                'gender'=>$request->gender,
+                'phone'=>$request->phone,
+                'present_address'=>$request->present_address,
+                'permanent_address'=>$request->permanent_address,
+                'nationality'=>$request->nationality,
+                'marital_status'=>$request->marital_status
+            ]);
+        $company_details=CompanyDetailsModel::where('employee_personal_details_id',$id)->first();
+        $company_details->update([
+                  'department'=>$request->department,
+                  'designation_name'=>$request->designation_name,
+                  'date_of_joining'=>$request->date_of_joining,
+                  'joining_sallary'=>$request->joining_sallary,
+                  'shift'=>$request->shift,
+                  'status'=>$request->status
+            ]);
+
+        $login_details=LoginDetailsModel::where('employee_personal_details_id',$id)->first();
+        $login_details->update([
+                  'email'=>$request->email,
+                  'password'=>bcrypt($request->password),
+                  'role'=>$request->role
+            ]);
+        $bank_details=BankAccountDetailsModel::where('employee_personal_details_id',$id)->first();
+        $bank_details->update([
+                'account_holder_name'=>$request->account_holder_name,
+                'bank_name'=>$request->bank_name,
+                'branch_name'=>$request->branch_name
+            ]);
+
+          
+          if(!empty($request->company_name)):
+                JobHistoryModel::where('employee_personal_details_id',$id)->delete();
+                 for($i=0;$i<count($request->company_name);$i++)
+                 {
+                    $job_history     =new JobHistoryModel;
+                    $job_history->employee_job_history_id=time()+$i;
+                    $job_history->employee_personal_details_id=$id;
+                    $job_history->company_name=$request->company_name[$i];
+                    $job_history->job_department=$request->job_department[$i];
+                    $job_history->designation=$request->designation[$i];
+                    $job_history->start_date=$request->start_date[$i];
+                    $job_history->end_date=$request->end_date[$i];
+                    $job_history->save();
+                 }
+            endif;
+
+
+        Session::flash('success','Employee Information Updated Successfully');
+        return back();
     }
 
     /**

@@ -24,4 +24,13 @@ class PersonalDetailsModel extends Model
                  'profile_image'=>'required'
     	       ];
     }
+
+    public function job()
+    {
+        return $this->hasMany(JobHistoryModel::class,'employee_personal_details_id');
+    }
+    public function file()
+    {
+        return $this->hasMany(DocumentsModel::class,'employee_personal_details_id');
+    }
 }
