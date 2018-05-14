@@ -59,3 +59,9 @@ Route::resource('/applications','ApplicationsController');
 Route::resource('/task','TaskController');
 
 //End Of Task Route
+
+//Notice Board
+Route::resource('/notice','NoticeBoardController');
+Route::post('/personal_details','NoticeBoardController@personal_details');
+
+

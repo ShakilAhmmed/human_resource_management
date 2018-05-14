@@ -91,7 +91,7 @@
                     </li>
 
                      <li>
-                        <a href="widgets.html"> <i class="menu-icon ti-email"></i>NOTICE BOARD </a>
+                        <a href="/notice"> <i class="menu-icon ti-email"></i>NOTICE BOARD </a>
                     </li>
 
                      <li>
