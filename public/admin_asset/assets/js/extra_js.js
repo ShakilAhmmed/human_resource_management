@@ -85,6 +85,7 @@
 
         });
 
+//FOR PASSWORD
 $("#pass").keyup(function(){
 		var pass=$(this).val().length;
 		if(pass<9)
@@ -107,4 +108,20 @@ $("#cpass").keyup(function(){
 		{
 		$("#msg_err").html("<font color='red'>Password Not Matched</font>");
 		}
+});
+
+//for notice
+$(".to").change(function(){
+    var id=$(this).val();
+    $.ajax({
+        url:'/personal_details',
+        type:'POST',
+        data:{'id':id,'_token': $('input[name=_token]').val()},
+        success:function(data){
+          console.log(data);
+          $(".email").val(data.email);
+          $(".phone").val(data.phone);
+          $(".profile").attr("src",data.profile_image);
+        }
+    });
 });

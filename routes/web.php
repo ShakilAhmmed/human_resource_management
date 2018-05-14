@@ -48,3 +48,8 @@ Route::resource('/vacancies','VacanciesController');
 Route::resource('/applications','ApplicationsController');
 //End Of RECRUITMENT Routes
 
+
+//Notice Board
+Route::resource('/notice','NoticeBoardController');
+Route::post('/personal_details','NoticeBoardController@personal_details');
+
