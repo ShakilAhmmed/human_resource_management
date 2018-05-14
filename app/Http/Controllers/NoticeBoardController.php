@@ -9,7 +9,8 @@ use App\LoginDetailsModel;
 use App\Mail\Notice;
 use Session;
 use Validator;
-use Twilio\Rest\Client;
+use SoapClient;
+//use Twilio\Rest\Client;
 class NoticeBoardController extends Controller
 {
     /**
@@ -63,13 +64,13 @@ class NoticeBoardController extends Controller
             $mail=LoginDetailsModel::where('employee_personal_details_id',$request->to)->first();
 
 
-
+            $this->notice($request->phone,$request->notice);
             \Mail::to($mail)->send(new Notice($notice_board));
             Session::flash('success','Notice Sent Successfully');
             return back();
         }
 
-        //$this->notice();
+        
 
     }
 
@@ -118,26 +119,42 @@ class NoticeBoardController extends Controller
         //
     }
 
-    public function notice()
+    public function notice($phone,$message)
     {
 
 
-            // Your Account Sid and Auth Token from twilio.com/console
-            // $sid    = "AC01cb907e21231a531aa6301bb56e7a87";
-            // $token  = "0db6ef16a6d074f8ec6bec08bc561a1a";
-            // $twilio = new Client($sid, $token);
+            //    // Your Account SID and Auth Token from twilio.com/console
+            // $sid = 'AC01cb907e21231a531aa6301bb56e7a87';
+            // $token = '0db6ef16a6d074f8ec6bec08bc561a1a';
+            // $client = new Client($sid, $token);
 
-            // $message = $twilio->messages
-            //                   ->create("+15558675310",
-            //                            array(
-            //                                'body' => "Let's grab lunch at Milliways tomorrow!",
-            //                                'from' => "+14158141829",
-            //                                'mediaUrl' => "http://www.example.com/cheeseburger.png"
-            //                            )
-            //                   );
+            // // Use the client to do fun stuff like send text messages!
+            // $client->messages->create(
+            //     // the number you'd like to send the message to
+            //     '+8801849942053',
+            //     array(
+            //         // A Twilio phone number you purchased at twilio.com/console
+            //         'from' => '+18644794710',
+            //         // the body of the text message you'd like to send
+            //         'body' => 'Hey Jenny! Good luck on the bar exam!'
+            //     )
+            // );
 
-            // print($message.sid);
-
-
+                    try{
+             $soapClient = new SoapClient("https://api2.onnorokomSMS.com/sendSMS.asmx?wsdl");
+             $paramArray = array(
+             'userName' => "01833255734",
+             'userPassword' => "12710",
+             'mobileNumber' => $phone,
+             'smsText' => $message,
+             'type' => "TEXT",
+             'maskName' => '',
+             'campaignName' => '',
+             );
+             $value = $soapClient->__call("OneToOne", array($paramArray));
+             echo $value->OneToOneResult;
+            } catch (Exception $e) {
+             echo $e->getMessage();
+            }
     }
 }
