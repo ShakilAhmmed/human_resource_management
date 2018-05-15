@@ -21,7 +21,8 @@ class NoticeBoardController extends Controller
     public function index()
     {
         $personal_details=PersonalDetailsModel::all();
-        return view('Admin.Notice.notice',['personal_details'=>$personal_details]);
+        $notice_board=NoticeBoardModel::all();
+        return view('Admin.Notice.notice',['personal_details'=>$personal_details,'notice_board'=>$notice_board]);
     }
 
     public function personal_details(Request $request)
@@ -57,21 +58,24 @@ class NoticeBoardController extends Controller
         }
         else
         {
-            $request_data=$request->all();
-            $request_data=array_add($request_data,'notice_board_id',time());
-            $notice_board->fill($request_data)->save();
+                $request_data=$request->all();
+                $request_data=array_add($request_data,'notice_board_id',time());
+                $notice_board->fill($request_data)->save();
+                $mail=LoginDetailsModel::where('employee_personal_details_id',$request->to)->first();
 
-            $mail=LoginDetailsModel::where('employee_personal_details_id',$request->to)->first();
+            if($request->type=='Individual'):
+                $this->notice($request->phone,$request->notice);
+                \Mail::to($mail)->send(new Notice($notice_board));
+            else:
+                $mail_all=LoginDetailsModel::all();
+                foreach ($mail_all as $mailto):
+                     \Mail::to($mailto)->send(new Notice($notice_board));
+                endforeach;
+            endif;
 
-
-            $this->notice($request->phone,$request->notice);
-            \Mail::to($mail)->send(new Notice($notice_board));
-            Session::flash('success','Notice Sent Successfully');
-            return back();
+                Session::flash('success','Notice Sent Successfully');
+                return back();
         }
-
-        
-
     }
 
     /**
@@ -116,12 +120,31 @@ class NoticeBoardController extends Controller
      */
     public function destroy($id)
     {
-        //
+        NoticeBoardModel::findOrFail($id)->delete();
+        Session::flash('success','Notice Deleted Successfully');
+        return back();
     }
 
     public function notice($phone,$message)
     {
-
+                            
+         try{
+             $soapClient = new SoapClient("https://api2.onnorokomSMS.com/sendSMS.asmx?wsdl");
+             $paramArray = array(
+             'userName' => "01833255734",
+             'userPassword' => "12710",
+             'mobileNumber' => $phone,
+             'smsText' => $message,
+             'type' => "TEXT",
+             'maskName' => '',
+             'campaignName' => '',
+             );
+             $value = $soapClient->__call("OneToOne", array($paramArray));
+             echo $value->OneToOneResult;
+            } 
+         catch (Exception $e) {
+             echo $e->getMessage();
+            }
 
             //    // Your Account SID and Auth Token from twilio.com/console
             // $sid = 'AC01cb907e21231a531aa6301bb56e7a87';
@@ -140,21 +163,5 @@ class NoticeBoardController extends Controller
             //     )
             // );
 
-                    try{
-             $soapClient = new SoapClient("https://api2.onnorokomSMS.com/sendSMS.asmx?wsdl");
-             $paramArray = array(
-             'userName' => "01833255734",
-             'userPassword' => "12710",
-             'mobileNumber' => $phone,
-             'smsText' => $message,
-             'type' => "TEXT",
-             'maskName' => '',
-             'campaignName' => '',
-             );
-             $value = $soapClient->__call("OneToOne", array($paramArray));
-             echo $value->OneToOneResult;
-            } catch (Exception $e) {
-             echo $e->getMessage();
-            }
     }
 }

@@ -125,3 +125,18 @@ $(".to").change(function(){
         }
     });
 });
+
+
+//notice
+
+$(".type").change(function(){
+   var type=$(this).val();
+   if(type=="Individual")
+   {
+      $(".individual").show();
+   }
+   else
+   {
+     $(".individual").hide();
+   }
+});

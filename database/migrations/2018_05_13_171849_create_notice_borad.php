@@ -18,6 +18,7 @@ class CreateNoticeBorad extends Migration
             $table->string('title');
             $table->string('subject');
             $table->string('author');
+            $table->string('type');
             $table->string('to');
             $table->text('notice');
             $table->timestamps();

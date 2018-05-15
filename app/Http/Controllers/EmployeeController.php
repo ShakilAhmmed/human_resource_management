@@ -49,7 +49,7 @@ class EmployeeController extends Controller
         $company_details =new CompanyDetailsModel;
         $bank_details    =new BankAccountDetailsModel;
         $login_details   =new LoginDetailsModel;
-        
+        $id=time();
       $personal_details_validation=Validator::make($request->all(),$personal_details->personal_rules());
        $company_details_validation=Validator::make($request->all(),$company_details->company_details_rules());
       $bank_details_validation=Validator::make($request->all(),$bank_details->bank_account_details_rules());
@@ -69,7 +69,7 @@ class EmployeeController extends Controller
       }
       else
       {
-          $personal_details->employee_personal_details_id=time();
+          $personal_details->employee_personal_details_id=$id;
           $personal_details->name=$request->name;
           $personal_details->father_name=$request->father_name;
           $personal_details->date_of_bith=$request->date_of_bith;
@@ -91,7 +91,7 @@ class EmployeeController extends Controller
                 }
             $personal_details->save();
             //company deatils
-            $company_details->employee_company_details_id=time();
+            $company_details->employee_company_details_id=$id;
             $company_details->employee_code=$request->employee_code;
             $company_details->employee_personal_details_id=time();
             $company_details->department=$request->department;
@@ -102,16 +102,16 @@ class EmployeeController extends Controller
             $company_details->status=$request->status;
             $company_details->save();
             //bank details
-             $bank_details->employee_bankaccount_details_id=time();
-             $bank_details->employee_personal_details_id=time();
+             $bank_details->employee_bankaccount_details_id=$id;
+             $bank_details->employee_personal_details_id=$id;
              $bank_details->account_holder_name=$request->account_holder_name;
              $bank_details->account_number=$request->account_number;
              $bank_details->bank_name=$request->bank_name;
              $bank_details->branch_name=$request->branch_name;
              $bank_details->save();
              //login details
-             $login_details->employee_login_details_id=time();
-             $login_details->employee_personal_details_id=time();
+             $login_details->employee_login_details_id=$id;
+             $login_details->employee_personal_details_id=$id;
              $login_details->email=$request->email;
              $login_details->password=bcrypt($request->password);
              $login_details->role=$request->role;
@@ -121,8 +121,7 @@ class EmployeeController extends Controller
                  for($i=0;$i<count($request->company_name);$i++)
                  {
                     $job_history     =new JobHistoryModel;
-                    $job_history->employee_job_history_id=time();
-                    $job_history->employee_personal_details_id=time();
+                    $job_history->employee_personal_details_id=$id;
                     $job_history->company_name=$request->company_name[$i];
                     $job_history->job_department=$request->job_department[$i];
                     $job_history->designation=$request->designation[$i];
@@ -138,8 +137,7 @@ class EmployeeController extends Controller
                 for($j=0;$j<count($request->document_file_name);$j++)
                   {
                       $documents       =new DocumentsModel;
-                      $documents->employee_documents_id=time();
-                      $documents->employee_personal_details_id=time();
+                      $documents->employee_personal_details_id=$id;
                       $documents->document_file_name=$request->document_file_name[$j];
                      if(@$request->document[$j]):
                          $document_file_path="admin_asset/backend/employee/documents/";
@@ -188,9 +186,11 @@ class EmployeeController extends Controller
      */
     public function edit($id)
     {
+
          $employee_data=PersonalDetailsModel::join('employee_company_details','employee_company_details.employee_personal_details_id','=','employee_company_details.employee_personal_details_id')
          ->join('employee_bankaccount_details','employee_bankaccount_details.employee_personal_details_id','=','employee_personal_details.employee_personal_details_id')
          ->join('employee_login_details','employee_login_details.employee_personal_details_id','=','employee_personal_details.employee_personal_details_id')
+         ->where('employee_personal_details.employee_personal_details_id',$id)
          ->first();
          return view('Admin.Employee.Edit.employee_edit',['employee_data'=>$employee_data]);
 

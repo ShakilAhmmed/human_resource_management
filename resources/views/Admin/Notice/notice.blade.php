@@ -58,42 +58,42 @@
                                   <thead>
                                     <tr>
                                       <th>Sl No</th>
-                                      <th>DEPARTMENT</th>
-                                      <th>DESIGNATION NAME</th>
-                                      <th>DESIGNATION DESCRIPTION</th>
-                                      <th>DESIGNATION STATUS</th>
+                                      <th>TO</th>
+                                      <th>TITLE</th>
+                                      <th>SUBJECT</th>
+                                      <th>NOTICE</th>
                                       <th>ACTION</th>
                                     </tr>
                                   </thead>
                                   <tbody>
-                                   <tr>
-                                      <td></td>
-                                      <td></td>
-                                      <td></td>
-                                      <td></td>
-                                      <td>
-                                      
-                                       <span style="color: red;">
-                                       <i class="fa fa-circle"></i>
+                                  
+                                   @foreach($notice_board as $key=>$notice_board_data)
+                                    <tr>
+                                      <td>{{$key+1}}</td>
+                                      @if($notice_board_data->type=="All")
+                                      <td>{{$notice_board_data->type}}</td>
+                                      @else
+                                       <td>
+                                          @php
+                                    $data=DB::table('employee_personal_details')
+                                          ->where('employee_personal_details_id',$notice_board_data->to)
+                                          ->first();
+                                          @endphp
+                                         {{$data->name}}
+                                       </td>
+                                      @endif
 
-                            
-                                      </td>
+                                      <td>{{$notice_board_data->title}}</td>
+                                      <td>{{$notice_board_data->subject}}</td>
+                                      <td>{{str_limit($notice_board_data->notice,30)}}</td>
                                       <td style="display: inline-flex;">
-                                      {{Form::open(['url'=>"",'method'=>'DELETE'])}}
+                                      {{Form::open(['url'=>"/notice/$notice_board_data->notice_board_id",'method'=>'DELETE'])}}
                                         {{Form::submit('DELETE',['class'=>'btn btn-danger','onclick'=>'checkdelete()'])}}
                                       {{Form::close()}}
 
-                                     {{Form::open(['url'=>"/",'method'=>'GET'])}}
-                                        {{Form::submit('EDIT',['class'=>'btn btn-primary'])}}
-                                      {{Form::close()}}
-
-                                    {{Form::open(['url'=>"",'method'=>'GET'])}}
-
-                                        {{Form::submit('ACTIVE',['class'=>'btn btn-success'])}}
-                                    {{Form::close()}}
-
                                       </td>
                                     </tr>
+                                    @endforeach
                                   </tbody>
                                 </table>
                               </div>
@@ -131,6 +131,15 @@
                                     <div style="color: red;">{{$errors->first('author')}}</div>
                                 </div>
 
+                                  <div class="form-group">
+                                    {{Form::label('type','Type',['class'=>'form-control-label'])}}
+                                    <div class="input-group">
+                                        <div class="input-group-addon"><i class="fa fa-pencil"></i></div>
+                                     {{Form::select('type',['--select--'=>'--select--','All'=>'All','Individual'=>'Individual'],null,['class'=>'form-control type','title'=>'author'])}}
+                                    </div>
+                                    <div style="color: red;">{{$errors->first('author')}}</div>
+                                </div>
+                               <div class="individual" style="display: none;">
                                 <div class="form-group">
                                 {{Form::label('to','To',['class'=>'form-control-label'])}}
                                     <div class="input-group">
@@ -171,7 +180,7 @@
                                  {{Form::image('admin_asset/images/blankavatar.png','Profile_image',['alt'=>'Your Image','class'=>'img-responsive img-circle profile','id'=>'blah','style'=>'width:19%;height:19%;'])}}
                                 </div>
                               </div>
-
+                          </div>
 
 
                                  <div class="form-group">
@@ -182,6 +191,7 @@
                                     </div>
                                     <div style="color: red;">{{$errors->first('notice')}}</div>
                                 </div>
+
                                 <div class="form-group">
                                     <div class="input-group">
                                        {{Form::submit('Save',['class'=>'btn btn-success'])}}
