@@ -11,7 +11,7 @@ class PersonalDetailsModel extends Model
     protected $fillable=['name','father_name','date_of_bith','gender','phone','present_address','permanent_address','nationality','marital_status','profile_image','employee_personal_details_id'];
     public function personal_rules()
     {
-    	return [
+        return [
                  'name'=>'required',
                  'father_name'=>'required',
                  'date_of_bith'=>'required',
@@ -22,7 +22,7 @@ class PersonalDetailsModel extends Model
                  'nationality'=>'required',
                  'marital_status'=>'required',
                  'profile_image'=>'required'
-    	       ];
+               ];
     }
 
     public function job()
