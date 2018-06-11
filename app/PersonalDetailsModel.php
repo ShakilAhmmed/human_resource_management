@@ -9,6 +9,9 @@ class PersonalDetailsModel extends Model
     protected $table="employee_personal_details";
     protected $primaryKey="employee_personal_details_id";
     protected $fillable=['name','father_name','date_of_bith','gender','phone','present_address','permanent_address','nationality','marital_status','profile_image','employee_personal_details_id'];
+
+
+
     public function personal_rules()
     {
         return [
