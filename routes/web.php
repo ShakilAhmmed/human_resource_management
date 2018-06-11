@@ -64,4 +64,8 @@ Route::resource('/task','TaskController');
 Route::resource('/notice','NoticeBoardController');
 Route::post('/personal_details','NoticeBoardController@personal_details');
 
+//Payslip
+Route::resource('/payslip','PayslipController');
+Route::post('/department_employee','PayslipController@employee');
+
 

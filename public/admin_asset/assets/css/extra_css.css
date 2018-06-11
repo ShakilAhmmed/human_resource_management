@@ -1,0 +1,14 @@
+.view{
+    border: 1px solid white;
+    width: 198px;
+    height: 34px;
+    padding: 5px;
+    text-align: center;
+    background: #2F2F2F;
+    color: white;
+    margin-left: 18px;
+}
+.view:hover{
+    background: white;
+    color: black;
+}

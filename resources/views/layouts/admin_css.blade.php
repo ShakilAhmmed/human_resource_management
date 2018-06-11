@@ -1,4 +1,5 @@
     <link rel="stylesheet" href="{{asset('admin_asset/assets/css/normalize.css')}}">
+    <link rel="stylesheet" href="{{asset('admin_asset/assets/css/extra_css.css')}}">
     <link rel="stylesheet" href="{{asset('admin_asset/assets/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('admin_asset/assets/css/font-awesome.min.css')}}">
     <link rel="stylesheet" href="{{asset('admin_asset/assets/css/themify-icons.css')}}">

@@ -112,4 +112,5 @@ class ApplicationsController extends Controller
         Session::flash('success','Deleted Operation SuccessFully Completed');
         return back();
     }
+
 }

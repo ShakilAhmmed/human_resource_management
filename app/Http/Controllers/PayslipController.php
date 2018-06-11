@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\DepartmentModel;
-use Validator;
-use Session;
+use App\PersonalDetailsModel;
+use App\CompanyDetailsModel;
 
-class DepartmentController extends Controller
+class PayslipController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,8 @@ class DepartmentController extends Controller
      */
     public function index()
     {
-        $dept_data=DepartmentModel::all();
-        return view('Admin.Department.department',['dept_data'=>$dept_data]);
+        $department=DepartmentModel::all();
+        return view('Admin.Payslip.payslip',['department'=>$department]);
     }
 
     /**
@@ -38,18 +38,7 @@ class DepartmentController extends Controller
      */
     public function store(Request $request)
     {
-        $data=new DepartmentModel;
-        $valid=Validator::make($request->all(),$data->department());
-        if($valid->fails())
-        {
-            return back()->withInput()->withErrors($valid);
-        }
-        else
-        {
-            $data->fill($request->all())->save();
-            Session::flash('success','Inserted SuccessFully');
-            return back();
-        }
+        //
     }
 
     /**
@@ -60,18 +49,7 @@ class DepartmentController extends Controller
      */
     public function show($id)
     {
-        $dept_data=DepartmentModel::where('id',$id)->first();
-        if($dept_data->status=='Active')
-        {
-            $dept_data->update(['status'=>'Inactive']);
-        }
-        else
-        {
-            $dept_data->update(['status'=>'Active']);
-        }
-
-        Session::flash('success','Status Updated');
-        return back();
+        //
     }
 
     /**
@@ -82,8 +60,7 @@ class DepartmentController extends Controller
      */
     public function edit($id)
     {
-        $edit_data=DepartmentModel::find($id);
-        return view('Admin.Department.Edit.department_edit',['edit_data'=>$edit_data]);
+        //
     }
 
     /**
@@ -95,10 +72,16 @@ class DepartmentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        DepartmentModel::where('id',$id)->first()->fill($request->all())->save();
-        Session::flash('success','Updated SuccessFully');
-        return back();
+        //
     }
+
+     public function employee(Request $request)
+     {
+         return PersonalDetailsModel::join('employee_company_details','employee_personal_details.employee_personal_details_id','=','employee_company_details.employee_personal_details_id')
+                                    ->where('employee_company_details.department',$request->department_name)
+                                    ->get();
+     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -108,10 +91,6 @@ class DepartmentController extends Controller
      */
     public function destroy($id)
     {
-        DepartmentModel::where('id',$id)->delete();
-        Session::flash('success','Deleted SuccessFully');
-        return back();
+        //
     }
-
-
 }
