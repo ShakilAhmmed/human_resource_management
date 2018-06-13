@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\DesignationModel;
 use Session;
 use Validator;
+use Illuminate\Support\Facades\Cache;
 
 class DesignationController extends Controller
 {
@@ -16,7 +17,13 @@ class DesignationController extends Controller
      */
     public function index()
     {
-        $designation_list=DesignationModel::all();
+        $designation_list=Cache::get('designation_list',[]);
+        if(empty($designation_list))
+        {
+            $designation_list=DesignationModel::all();
+            Cache::forever('designation_list',$designation_list);
+        }
+
         return view('Admin.Designation.designation',['designation_list'=>$designation_list]);
     }
 
@@ -83,7 +90,7 @@ class DesignationController extends Controller
      */
     public function edit($id)
     {
-        $edit_data=DesignationModel::find($id);
+        $edit_data=DesignationModel::findOrFail($id);
         return view('Admin.Designation.Edit.designation_edit',['edit_data'=>$edit_data]);
         
     }

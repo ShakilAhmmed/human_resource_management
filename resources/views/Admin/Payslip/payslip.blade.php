@@ -41,6 +41,66 @@
             <div class="view" style="height: 34px;margin-left: 50px;">SUBMIT</div>
         </div>
         {{Form::open(['url'=>'/payslip'])}}
+        <script src="http://cdnjs.cloudflare.com/…/li…/jquery/2.1.3/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+        <script type="text/javascript">
+            //allowances
+            var max_fields_allowances     = 10; //maximum input boxes allowed  <div><input type="text" name="mytext[]"/><a href="#" class="remove_field">Remove</a></div>
+            var wrapper_allowances         = $(".allowances"); //Fields wrapper
+            var allowances_button      = $(".allowances_button"); //Add button ID
+
+            var x = 1; //initlal text box count
+            $(allowances_button).click(function(e){ //on add input button click
+                e.preventDefault();
+                if(x < max_fields_allowances){ //max input box allowed
+                    x++; //text box increment
+                    $(wrapper_allowances).append("<div style='line-height: 40px;margin-left: 28.5%;'>\
+                      <table style='margin-top: -37px;'>\
+                     <tr>\
+                      <td>\
+                       <input type='text' class='form-control' name='allowances_type[]' style='margin-left: 21px;width: 194px;'/>\
+                      </td>\
+                       <td>\
+                       <input type='text' class='form-control allowances_amount' name='allowances_amount[]' style='margin-left: 21px;width: 194px;'/>\
+                      </td>\
+                      </tr>\
+                     <button class='btn btn-danger remove_field_allowances' style='width: 195px;margin-left: 452px;'>Remove</button>\
+                     </table>\</div>"); //add input box
+                }
+            });
+            $(wrapper_allowances).on("click",".remove_field_allowances", function(e){ //user click on remove text
+                e.preventDefault(); $(this).parent('div').remove(); x--;
+            })
+
+            //deductions
+            var max_fields_deductions    = 10; //maximum input boxes allowed  <div><input type="text" name="mytext[]"/><a href="#" class="remove_field">Remove</a></div>
+            var wrapper_deductions        = $(".deductions"); //Fields wrapper
+            var deductions_button      = $(".deductions_button"); //Add button ID
+
+            var x = 1; //initlal text box count
+            $(deductions_button).click(function(e){ //on add input button click
+                e.preventDefault();
+                if(x < max_fields_allowances){ //max input box allowed
+                    x++; //text box increment
+                    $(wrapper_deductions).append("<div style='line-height: 40px;margin-left: 28.5%;'>\
+                      <table style='margin-top: -37px;'>\
+                     <tr>\
+                      <td>\
+                       <input type='text' class='form-control' name='deductions_type[]' style='margin-left: 21px;width: 194px;'/>\
+                      </td>\
+                       <td>\
+                       <input type='text' class='form-control deductions_amount' name='deductions_amount[]' style='margin-left: 21px;width: 194px;'/>\
+                      </td>\
+                      </tr>\
+                     <button class='btn btn-danger remove_field_deductions' style='width: 195px;margin-left: 452px;'>Remove</button>\
+                     </table>\</div>"); //add input box
+                }
+            });
+            $(wrapper_deductions).on("click",".remove_field_deductions", function(e){ //user click on remove text
+                e.preventDefault(); $(this).parent('div').remove(); x--;
+            })
+        </script>
         <div style="display: -webkit-box;">
             <div class="form-group">
                 <div class="col-sm-2">
@@ -69,7 +129,7 @@
             </div>
             <div class="form-group">
                 <div class="col-sm-2">
-                    {{Form::text('medicine_name','',['class'=>'form-control medicine_name','style'=>'width: 200px;margin-left:19px;'])}}
+                    {{Form::text('year','',['class'=>'form-control year','style'=>'width: 200px;margin-left:19px;'])}}
                 </div>
             </div>
             <div class="form-group">
@@ -105,7 +165,7 @@
                         <input type='text' class='form-control allowances_amount' id="allowances_amount" name='allowances_amount[]' style='margin-left: 21px;width: 194px;'/>
                     </td>
                     <td>
-                        <button class="btn btn-success allowances_button" style="width: 196px;margin-left: 21px;">Add More Filed</button>
+                        <button type="button" class="btn btn-success allowances_button" style="width: 196px;margin-left: 21px;">Add More Filed</button>
                     </td>
                     <td>
                         <button type="button" class="btn btn-primary allowances_calculate" id="allowances_calculate" style="width: 196px;margin-left: 21px;">Calculate</button>
@@ -141,7 +201,7 @@
                         <input type='text' class='form-control deductions_amount' name='deductions_amount[]' style='margin-left: 21px;width: 194px;'/>
                     </td>
                     <td>
-                        <button class="btn btn-success deductions_button" style="width: 196px;margin-left: 21px;">Add More Filed</button>
+                        <button type="button" class="btn btn-success deductions_button" style="width: 196px;margin-left: 21px;">Add More Filed</button>
                     </td>
                     <td>
                         <button type="button" class="btn btn-primary deductions_calculate" style="width: 196px;margin-left: 21px;">Calculate</button>
@@ -152,6 +212,7 @@
 
         </div>
     </div>
+
   <div class="col-sm-2"></div>
     <div class="col-sm-8" style="margin-top: 3%;">
         <div class="card">
@@ -197,10 +258,6 @@
     </div>
     <div class="col-sm-2"></div>
 </div>
-    {{Form::close()}}
-    <script src="http://cdnjs.cloudflare.com/…/li…/jquery/2.1.3/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript">
 
-    </script>
+    {{Form::close()}}
 @stop

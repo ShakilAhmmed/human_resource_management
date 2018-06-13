@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\DepartmentModel;
 use Validator;
 use Session;
-
+use Illuminate\Support\Facades\Cache;
 class DepartmentController extends Controller
 {
     /**
@@ -16,7 +16,13 @@ class DepartmentController extends Controller
      */
     public function index()
     {
-        $dept_data=DepartmentModel::all();
+        $dept_data=Cache::get('dept_data',[]);
+        if(empty($dept_data))
+        {
+            $dept_data=DepartmentModel::all();
+            Cache::forever('dept_data',$dept_data);
+        }
+
         return view('Admin.Department.department',['dept_data'=>$dept_data]);
     }
 
