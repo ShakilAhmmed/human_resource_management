@@ -140,61 +140,61 @@ $(".type").change(function(){
    }
 });
 
-//allowances
-      var max_fields_allowances     = 10; //maximum input boxes allowed  <div><input type="text" name="mytext[]"/><a href="#" class="remove_field">Remove</a></div>
-      var wrapper_allowances         = $(".allowances"); //Fields wrapper
-      var allowances_button      = $(".allowances_button"); //Add button ID
-
-      var x = 1; //initlal text box count
-      $(allowances_button).click(function(e){ //on add input button click
-          e.preventDefault();
-          if(x < max_fields_allowances){ //max input box allowed
-              x++; //text box increment
-              $(wrapper_allowances).append("<div style='line-height: 40px;margin-left: 28.5%;'>\
-                      <table style='margin-top: -37px;'>\
-                     <tr>\
-                      <td>\
-                       <input type='text' class='form-control' name='allowances_type[]' style='margin-left: 21px;width: 194px;'/>\
-                      </td>\
-                       <td>\
-                       <input type='text' class='form-control allowances_amount' name='allowances_amount[]' style='margin-left: 21px;width: 194px;'/>\
-                      </td>\
-                      </tr>\
-                     <button class='btn btn-danger remove_field_allowances' style='width: 195px;margin-left: 452px;'>Remove</button>\
-                     </table>\</div>"); //add input box
-          }
-      });
-      $(wrapper_allowances).on("click",".remove_field_allowances", function(e){ //user click on remove text
-          e.preventDefault(); $(this).parent('div').remove(); x--;
-      })
-
- //deductions
-      var max_fields_deductions    = 10; //maximum input boxes allowed  <div><input type="text" name="mytext[]"/><a href="#" class="remove_field">Remove</a></div>
-      var wrapper_deductions        = $(".deductions"); //Fields wrapper
-      var deductions_button      = $(".deductions_button"); //Add button ID
-
-      var x = 1; //initlal text box count
-      $(deductions_button).click(function(e){ //on add input button click
-          e.preventDefault();
-          if(x < max_fields_allowances){ //max input box allowed
-              x++; //text box increment
-              $(wrapper_deductions).append("<div style='line-height: 40px;margin-left: 28.5%;'>\
-                      <table style='margin-top: -37px;'>\
-                     <tr>\
-                      <td>\
-                       <input type='text' class='form-control' name='deductions_type[]' style='margin-left: 21px;width: 194px;'/>\
-                      </td>\
-                       <td>\
-                       <input type='text' class='form-control deductions_amount' name='deductions_amount[]' style='margin-left: 21px;width: 194px;'/>\
-                      </td>\
-                      </tr>\
-                     <button class='btn btn-danger remove_field_deductions' style='width: 195px;margin-left: 452px;'>Remove</button>\
-                     </table>\</div>"); //add input box
-          }
-      });
-      $(wrapper_deductions).on("click",".remove_field_deductions", function(e){ //user click on remove text
-          e.preventDefault(); $(this).parent('div').remove(); x--;
-      })
+            // //allowances
+            // var max_fields_allowances     = 10; //maximum input boxes allowed  <div><input type="text" name="mytext[]"/><a href="#" class="remove_field">Remove</a></div>
+            // var wrapper_allowances         = $(".allowances"); //Fields wrapper
+            // var allowances_button      = $(".allowances_button"); //Add button ID
+            //
+            // var x = 1; //initlal text box count
+            // $(allowances_button).click(function(e){ //on add input button click
+            //     e.preventDefault();
+            //     if(x < max_fields_allowances){ //max input box allowed
+            //         x++; //text box increment
+            //         $(wrapper_allowances).append("<div style='line-height: 40px;margin-left: 28.5%;'>\
+            //           <table style='margin-top: -37px;'>\
+            //          <tr>\
+            //           <td>\
+            //            <input type='text' class='form-control' name='allowances_type[]' style='margin-left: 21px;width: 194px;'/>\
+            //           </td>\
+            //            <td>\
+            //            <input type='text' class='form-control allowances_amount' name='allowances_amount[]' style='margin-left: 21px;width: 194px;'/>\
+            //           </td>\
+            //           </tr>\
+            //          <button class='btn btn-danger remove_field_allowances' style='width: 195px;margin-left: 452px;'>Remove</button>\
+            //          </table>\</div>"); //add input box
+            //     }
+            // });
+            // $(wrapper_allowances).on("click",".remove_field_allowances", function(e){ //user click on remove text
+            //     e.preventDefault(); $(this).parent('div').remove(); x--;
+            // })
+            //
+            // //deductions
+            // var max_fields_deductions    = 10; //maximum input boxes allowed  <div><input type="text" name="mytext[]"/><a href="#" class="remove_field">Remove</a></div>
+            // var wrapper_deductions        = $(".deductions"); //Fields wrapper
+            // var deductions_button      = $(".deductions_button"); //Add button ID
+            //
+            // var x = 1; //initlal text box count
+            // $(deductions_button).click(function(e){ //on add input button click
+            //     e.preventDefault();
+            //     if(x < max_fields_allowances){ //max input box allowed
+            //         x++; //text box increment
+            //         $(wrapper_deductions).append("<div style='line-height: 40px;margin-left: 28.5%;'>\
+            //           <table style='margin-top: -37px;'>\
+            //          <tr>\
+            //           <td>\
+            //            <input type='text' class='form-control' name='deductions_type[]' style='margin-left: 21px;width: 194px;'/>\
+            //           </td>\
+            //            <td>\
+            //            <input type='text' class='form-control deductions_amount' name='deductions_amount[]' style='margin-left: 21px;width: 194px;'/>\
+            //           </td>\
+            //           </tr>\
+            //          <button class='btn btn-danger remove_field_deductions' style='width: 195px;margin-left: 452px;'>Remove</button>\
+            //          </table>\</div>"); //add input box
+            //     }
+            // });
+            // $(wrapper_deductions).on("click",".remove_field_deductions", function(e){ //user click on remove text
+            //     e.preventDefault(); $(this).parent('div').remove(); x--;
+            // })
  //Payslip Department wise Employee
       $(".department").change(function () {
           var department_name=$(this).val();

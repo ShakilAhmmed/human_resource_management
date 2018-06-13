@@ -2,6 +2,10 @@
 
 namespace App\Providers;
 
+use App\DesignationModel;
+use App\DepartmentModel;
+use App\Observer\DepartmentObserver;
+use App\Observer\DesignationObserver;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 
@@ -17,6 +21,8 @@ class AppServiceProvider extends ServiceProvider
     {
 
         Schema::defaultStringLength(191);
+        DesignationModel::Observe(DesignationObserver::class);
+        DepartmentModel::Observe(DepartmentObserver::class);
     }
 
     /**
