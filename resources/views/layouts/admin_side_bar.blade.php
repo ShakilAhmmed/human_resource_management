@@ -44,7 +44,7 @@
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>ATTENDACNE</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-table"></i><a href="tables-basic.html">DAILY ATTENDANCE</a></li>
+                            <li><i class="fa fa-table"></i><a href="/attendance">DAILY ATTENDANCE</a></li>
                             <li><i class="fa fa-table"></i><a href="tables-data.html">ATTENDANCE REPORT</a></li>
                         </ul>
                     </li>
