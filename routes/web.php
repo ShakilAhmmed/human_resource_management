@@ -47,6 +47,11 @@ Route::resource('/designation','DesignationController');
 Route::resource('/employee','EmployeeController');
 
 
+//Attendance Routes
+Route::resource('/attendance','AttendanceController');
+Route::post('/get_employee_data','AttendanceController@get_employee_data');
+//End of Attendance Route
+
 //For RECRUITMENT Routes
 Route::resource('/vacancies','VacanciesController');
 Route::resource('/applications','ApplicationsController');
