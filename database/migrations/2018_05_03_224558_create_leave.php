@@ -15,8 +15,10 @@ class CreateLeave extends Migration
     {
         Schema::create('leave', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('employee_id');
-            $table->text('all_information');
+            $table->string('employee_code');
+            $table->string('employee_name');
+            $table->string('phone_number');
+            $table->string('address');
             $table->string('leave_type');
             $table->string('from_date');
             $table->string('to_date');

@@ -54,6 +54,7 @@
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-table"></i><a href="/leave_type">LEAVE TYPE</a></li>
                             <li><i class="fa fa-table"></i><a href="/leave">LEAVE</a></li>
+                             <li><i class="fa fa-table"></i><a href="/leave/create">APPROVE LEAVE LIST</a></li>
                         </ul>
                     </li>
 

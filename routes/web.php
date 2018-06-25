@@ -32,6 +32,8 @@ Route::resource('/leave_type','LeaveTypeController');
 
 //start leave
 Route::resource('/leave','LeaveController');
+Route::post('/get_employee_details','LeaveController@get_employee_details');
+
 //end leave
 
 //start holiday

@@ -4,9 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d91665cb976b40edaf998ba0db8b6803",
     "content-hash": "8a6c9075f7bf74d70d647f9b80f8c518",
-    "content-hash": "6524d35087ef018c60b8377d238113eb",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -882,16 +880,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "1.29.2",
+            "version": "1.30.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "ed6aa898982f441ccc9b2acdec51490f2bc5d337"
+                "reference": "863a1a651ea324e1838da3a52753a4239b9d4bea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/ed6aa898982f441ccc9b2acdec51490f2bc5d337",
-                "reference": "ed6aa898982f441ccc9b2acdec51490f2bc5d337",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/863a1a651ea324e1838da3a52753a4239b9d4bea",
+                "reference": "863a1a651ea324e1838da3a52753a4239b9d4bea",
                 "shasum": ""
             },
             "require": {
@@ -926,7 +924,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2018-05-29T15:23:46+00:00"
+            "time": "2018-06-15T11:52:26+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -1174,16 +1172,16 @@
         },
         {
             "name": "psy/psysh",
-            "version": "v0.9.5",
+            "version": "v0.9.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/psysh.git",
-                "reference": "0951e91ac04ca28cf317f3997a0adfc319e80106"
+                "reference": "4a2ce86f199d51b6e2524214dc06835e872f4fce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/0951e91ac04ca28cf317f3997a0adfc319e80106",
-                "reference": "0951e91ac04ca28cf317f3997a0adfc319e80106",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/4a2ce86f199d51b6e2524214dc06835e872f4fce",
+                "reference": "4a2ce86f199d51b6e2524214dc06835e872f4fce",
                 "shasum": ""
             },
             "require": {
@@ -1242,7 +1240,7 @@
                 "interactive",
                 "shell"
             ],
-            "time": "2018-06-02T16:39:22+00:00"
+            "time": "2018-06-10T17:57:20+00:00"
         },
         {
             "name": "ramsey/uuid",
@@ -2298,20 +2296,20 @@
         },
         {
             "name": "twilio/sdk",
-            "version": "5.19.3",
+            "version": "5.19.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twilio/twilio-php.git",
-                "reference": "22ab6439fafb1351833f3510ccba8a6640efb87c"
+                "reference": "165cecbe4f7ac910f016a3e42e5d324765913486"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twilio/twilio-php/zipball/22ab6439fafb1351833f3510ccba8a6640efb87c",
-                "reference": "22ab6439fafb1351833f3510ccba8a6640efb87c",
+                "url": "https://api.github.com/repos/twilio/twilio-php/zipball/165cecbe4f7ac910f016a3e42e5d324765913486",
+                "reference": "165cecbe4f7ac910f016a3e42e5d324765913486",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0"
+                "php": ">=5.5.0"
             },
             "require-dev": {
                 "apigen/apigen": "^4.1",
@@ -2340,7 +2338,7 @@
                 "sms",
                 "twilio"
             ],
-            "time": "2018-06-05T02:22:11+00:00"
+            "time": "2018-06-22T00:21:39+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -2460,7 +2458,7 @@
                 "profiler",
                 "webprofiler"
             ],
-            "time": "2018-05-03 18:27:04"
+            "time": "2018-05-03T18:27:04+00:00"
         },
         {
             "name": "doctrine/instantiator",
@@ -2734,7 +2732,7 @@
                 "debug",
                 "debugbar"
             ],
-            "time": "2017-12-15 11:13:46"
+            "time": "2017-12-15T11:13:46+00:00"
         },
         {
             "name": "mockery/mockery",
