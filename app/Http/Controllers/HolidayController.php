@@ -46,7 +46,7 @@ class HolidayController extends Controller
         else
         {
             $holiday->fill($request->all())->save();
-            Session::flash('success','Inserted SuccessFully');
+            Session::flash('success','Holiday Added');
             return back();
         }
     }
@@ -94,5 +94,36 @@ class HolidayController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function get_holiday(Request $request)
+    {
+        $month='0'.$request->month;
+        $data=HolidayModel::whereMonth('date', '=',$month)->get();
+
+        foreach($data as $data_value)
+        {
+            $view="<div class='col-sm-4'>";
+            $view.="<div class=\"card\" style=\"width: 18rem;margin-left: 16px;\">";
+            $view.="<h2 style='margin-left: 15px;color: red;'><i class='fa fa-calendar'></i> </h2>";
+            $view.="<div class=\"card-body\">";
+            $view.="<h5 class=\"card-title\" style='color: red;'>$data_value->occassion</h5>";
+            $view.="<p class=\"card-text\">$data_value->description</p>";
+            $date=date('d-M-Y',strtotime($data_value->date));
+            $view.="<p class=\"card-text\">$date</p>";
+            if($data_value->status=='Active'):
+             $view.="<a href=\"#\" class=\"btn btn-success\">$data_value->status</a>";
+            else:
+                $view.="<a href=\"#\" class=\"btn btn-danger\">$data_value->status</a>";
+            endif;
+            $view.="</div>";
+            $view.="</div>";
+            $view.="</div>";
+            echo  $view;
+        }
+
+
+
+
     }
 }
