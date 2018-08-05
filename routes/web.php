@@ -73,4 +73,6 @@ Route::post('/personal_details','NoticeBoardController@personal_details');
 Route::resource('/payslip','PayslipController');
 Route::post('/department_employee','PayslipController@employee');
 
+Route::post('/get_holiday','HolidayController@get_holiday');
+
 
