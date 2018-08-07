@@ -59,7 +59,14 @@ class HolidayController extends Controller
      */
     public function show($id)
     {
-        //
+        $data=HolidayModel::findOrFail($id);
+        if($data->status=='Active'):
+            $data->update(['status'=>'Inactive']);
+        else:
+            $data->update(['status'=>'Active']);
+        endif;
+        Session::flash('success','Status Changed Successfully');
+        return back();
     }
 
     /**
@@ -112,9 +119,11 @@ class HolidayController extends Controller
             $date=date('d-M-Y',strtotime($data_value->date));
             $view.="<p class=\"card-text\">$date</p>";
             if($data_value->status=='Active'):
-             $view.="<a href=\"#\" class=\"btn btn-success\">$data_value->status</a>";
+                $view.="<p class=\"card-text\" style='color: green;'><i class='fa fa-check-circle'></i>$data_value->status </p>";
+                $view.="<a href=\"/holiday/$data_value->id\" class=\"btn btn-danger\">Inactive</a>";
             else:
-                $view.="<a href=\"#\" class=\"btn btn-danger\">$data_value->status</a>";
+                $view.="<p class=\"card-text\" style='color: red;'><i class='fa fa-crosshairs'></i>$data_value->status </p>";
+                $view.="<a href=\"/holiday/$data_value->id\" class=\"btn btn-success\">Active</a>";
             endif;
             $view.="</div>";
             $view.="</div>";
