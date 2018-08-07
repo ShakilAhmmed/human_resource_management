@@ -4,9 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\DepartmentModel;
-use App\PersonalDetailsModel;
 use App\CompanyDetailsModel;
-
+use App\PersonalDetailsModel;
+use App\PayslipBasicModel;
+use App\PayslipAllowanceModel;
+use App\PayslipDeductionModel;
+use Session;
+use Validator;
 class PayslipController extends Controller
 {
     /**
@@ -38,8 +42,57 @@ class PayslipController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
-    }
+        $basic_model=new PayslipBasicModel;
+        $allowances_model=new PayslipAllowanceModel;
+        $deduction_model=new PayslipDeductionModel;
+        $basic_validate=Validator::make($request->all(),$basic_model->validate_rules());
+        $allowances_validate=Validator::make($request->all(),$allowances_model->validate_rules());
+        $deduction_validate=Validator::make($request->all(),$deduction_model->validate_rules());
+
+      if($basic_validate->fails() || $allowances_validate->fails() || $deduction_validate->fails())
+      {
+
+        $validationMessages =array_merge_recursive(
+            $basic_validate->messages()->toArray(), 
+            $allowances_validate->messages()->toArray(),
+            $deduction_validate->messages()->toArray());
+        
+            
+        return back()->withInput()->withErrors($validationMessages);
+      }
+      else
+      {
+        $request_data=$request->all();
+        $basic_model->fill($request_data)->save();
+           
+           $count_allowance=count($request->allowances_amount);
+           for($i=0;$i<$count_allowance;$i++)
+           {
+            $allowances=new PayslipAllowanceModel;
+            $allowances->payslip_id=$request->payslip_id;
+            $allowances->allowances_type=$request->allowances_type[$i];
+            $allowances->allowances_amount=$request->allowances_amount[$i];
+            $allowances->save();
+           }
+           
+          $count_deductions=count($request->deductions_amount);
+           for($j=0;$j<$count_deductions;$j++)
+           {
+            $deductions=new PayslipDeductionModel;
+            $deductions->payslip_id=$request->payslip_id;
+            $deductions->deductions_type=$request->deductions_type[$j];
+            $deductions->deductions_amount=$request->deductions_amount[$j];
+            $deductions->save();
+           }
+
+             
+
+         Session::flash('success','SuccessFully Inserted');
+         return back();
+           }
+      }
+       
+    
 
     /**
      * Display the specified resource.
