@@ -83,7 +83,7 @@
 
 
                      <li>
-                        <a href="widgets.html"> <i class="menu-icon ti-email"></i>AWARD </a>
+                        <a href="/award"> <i class="menu-icon ti-email"></i>AWARD </a>
                     </li>
 
                      <li>
