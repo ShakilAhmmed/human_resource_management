@@ -74,5 +74,6 @@ Route::resource('/payslip','PayslipController');
 Route::post('/department_employee','PayslipController@employee');
 
 Route::post('/get_holiday','HolidayController@get_holiday');
+Route::post('/get_employee_data','LeaveController@get_employee_data');
 
 
