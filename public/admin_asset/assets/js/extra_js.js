@@ -282,3 +282,23 @@ $(".type").change(function(){
 
 
 });
+
+
+//Leave Employee Data Get
+      $(document).ready(function () {
+          $(".employee_code").keyup(function(){
+              var employee_code=$(this).val();
+              //console.log(employee_code);
+              $.ajax({
+                  url:'/get_employee_data',
+                  type:'POST',
+                  data:{'employee_code':employee_code,'_token': $('input[name=_token]').val()},
+                  success:function (data) {
+                      $(".employee_name").val(data.name);
+                      $(".employee_phone").val(data.phone);
+
+                      //console.log(data);
+                  }
+              });
+          });
+      });

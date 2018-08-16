@@ -5,7 +5,7 @@
 
 
 @if(session('success'))
-<div class="alert alert-success alert-dismissable" align="center" style="width: 331px; margin-left: 682px">
+<div class="alert alert-success alert-dismissable" align="center">
     <a href="" class="close" data-dismiss="alert" aria-label="close">×</a>
     <strong>Success !</strong> {{session('success')}}
   </div>
@@ -31,32 +31,54 @@
                         <!-- first tab -->
                         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                              <div class="col-xs-12 col-sm-12">
-                      {{Form::open(['url'=>"/leave_type" ,'method'=>'post'])}}
+                      {{Form::open(['url'=>"/leave" ,'method'=>'post'])}}
 
                             <div class="card-body card-block">
                              <div class="form-group">                                    
-                                {{Form::label('Employee Id','',['class'=>'control-label'])}}
+                                {{Form::label('Employee Code','',['class'=>'control-label'])}}
                                     <div class="input-group">
                                         <div class="input-group-addon"><i class="fa fa-usd"></i></div>
-                                       {{Form::text('employee_id','',['class'=>'form-control','title'=>'employee_id','required'=>'required'])}}
+                                       {{Form::text('employee_code','',['class'=>'form-control employee_code','title'=>'employee_code','required'=>'required'])}}
                                     </div>
+                                  <div style="color: red;">{{$errors->first('employee_id')}}</div>
                                 </div>
-                                <div style="color: red;">{{$errors->first('employee_id')}}</div>
+
                                 <div class="form-group">
-                                    {{Form::label('All information','',['class'=>'control-label'])}}
+                                    {{Form::label('Employee Name','',['class'=>'control-label'])}}
                                     <div class="input-group">
-                                        <div class="input-group-addon"><i class="fa fa-phone"></i></div>
-                                        {{Form::textarea('all_information','',['class'=>'form-control','col'=>'20','rows'=>'4','title'=>'all_information','required'=>'required'])}}
+                                        <div class="input-group-addon"><i class="fa fa-usd"></i></div>
+                                        {{Form::text('employee_name','',['class'=>'form-control employee_name','title'=>'employee_name','readonly'=>'readonly'])}}
                                     </div>
+                                    <div style="color: red;">{{$errors->first('employee_name')}}</div>
                                 </div>
-                                 <div style="color: red;">{{$errors->first('all_information')}}</div>
+
+
+                                <div class="form-group">
+                                    {{Form::label('Employee Phone','',['class'=>'control-label'])}}
+                                    <div class="input-group">
+                                        <div class="input-group-addon"><i class="fa fa-usd"></i></div>
+                                        {{Form::text('employee_phone','',['class'=>'form-control employee_phone','title'=>'employee_phone','readonly'=>'readonly'])}}
+                                    </div>
+                                    <div style="color: red;">{{$errors->first('employee_phone')}}</div>
+                                </div>
+
+
                                   <div class="form-group">
                                     {{Form::label('Leave Type','',['class'=>'control-label'])}}
                                     <div class="input-group">
-                                       {{Form::select('leace_type',['class'=>'form-control','title'=>'leave_type'])}}
+                                        <div class="input-group-addon"><i class="fa fa-usd"></i></div>
+                                        @php  $leave_type_array=['--select--'=>'--select--'] @endphp
+                                        @foreach($leave as $leave_data)
+                                          @php
+                                            $leave_type_array[$leave_data->leave_type_name]=$leave_data->leave_type_name;
+                                          @endphp
+                                        @endforeach
+
+
+                                       {{Form::select('leave_type',$leave_type_array,null,['class'=>'form-control','title'=>'leave_type'])}}
                                     </div>
                                 </div>
-                                 <div style="color: red;">{{$errors->first('all_information')}}</div>
+                                 <div style="color: red;">{{$errors->first('leave_type')}}</div>
                                  <div class="form-group">                                    
                                 {{Form::label('From Date','',['class'=>'control-label'])}}
                                     <div class="input-group">
@@ -84,15 +106,13 @@
                                 <div class="form-group">
                                 {{Form::label('Status','',['class'=>'control-label'])}}
                                  <div class="input-group">
-                               <div class="radio-inline">{{Form::radio('status','Pending')}}{{Form::label('status','Pending')}}</div> &nbsp;
-                                <div class="radio-inline">{{Form::radio('status','Approve')}}{{Form::label('status','Approve')}}</div>
-                               </div>
-                               <div class="radio-inline">{{Form::radio('status','Declined')}}{{Form::label('status','Declined')}}</div>
-                               </div>
+                                     <div class="input-group-addon"><i class="fa fa-phone"></i></div>
+                                     {{Form::select('status',['Active'=>'Active','Pending'=>'Pending'],null,['class'=>'form-control','title'=>'leave_type'])}}
+                                 </div>
                                 </div>
 
                                  <div class="input-group input-icon right">
-                                 {{Form::submit('Save',['class'=>'btn btn-success submit','style'=>'margin-bottom: 55px;margin-left: 101px;'])}}
+                                 {{Form::submit('Save',['class'=>'btn btn-success submit'])}}
                                 </div>
                                   {{Form::close()}}
                             </div>
@@ -105,16 +125,27 @@
                                                   <table  class="table table-striped table-bordered">
                                                     <thead>
                                                       <tr>
-                                                        <th>Si</th>
-                                                        <th>Leave Type Name</th>
-                                                        <th>Description</th>
-                                                        <th>Status</th>
-                                                        <th>Action</th>
+                                                          <th>SL No</th>
+                                                          <th>Employee Code</th>
+                                                          <th>Leave Type</th>
+                                                          <th>From Date</th>
+                                                          <th>To Date</th>
+                                                          <th>Status</th>
+                                                          <th>Action</th>
                                                       </tr>
                                                     </thead>
                                                     <tbody>
-                                                    <tr>
-                                                   
+                                                            <tr>
+                                                                @foreach($data as $key=>$leave_data_value)
+                                                                <td>{{$key+1}}</td>
+                                                                <td>{{$leave_data_value->employee_code}}</td>
+                                                                <td>{{$leave_data_value->leave_type}}</td>
+                                                                <td>{{date('d-M-Y',strtotime($leave_data_value->from_date))}}</td>
+                                                                <td>{{date('d-M-Y',strtotime($leave_data_value->to_date))}}</td>
+                                                                <td>sss</td>
+                                                                <td>ssss</td>
+                                                            </tr>
+                                                    @endforeach
                                                     </tbody>
                                                   </table>
                                                 </div>
@@ -125,4 +156,5 @@
                                 </div>
                             </div>
                         </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 @stop
