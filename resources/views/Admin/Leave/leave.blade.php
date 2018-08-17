@@ -142,8 +142,33 @@
                                                                 <td>{{$leave_data_value->leave_type}}</td>
                                                                 <td>{{date('d-M-Y',strtotime($leave_data_value->from_date))}}</td>
                                                                 <td>{{date('d-M-Y',strtotime($leave_data_value->to_date))}}</td>
-                                                                <td>sss</td>
-                                                                <td>ssss</td>
+                                                                <td>@if($leave_data_value->status=='Active')
+                                                                 <span style="color: green"><i  class="fa fa-circle" aria-hidden="true"></i>&nbsp;{{$leave_data_value->status}}</span>
+                                                               @else
+                                                               <span style="color: red"><i  class="fa fa-circle" aria-hidden="true"></i>&nbsp;{{$leave_data_value->status}}</span>
+                                                               @endif
+                                                             </td>
+                                                                <td id="my_align" class="display_status"> <div style="display:inline-flex">
+                                                            {{Form::open(['url'=>"/leave/$leave_data_value->id/edit" ,'method'=>'GET'])}}
+                                                            {{Form::submit('Edit',['class'=>'btn btn-primary'])}}
+                                                            {{Form::close()}}
+
+                                                            {{Form::open(['url'=>"/leave/$leave_data_value->id",'method'=>'DELETE'])}}
+                                                            {{Form::submit('Delete',['class'=>'btn btn-danger','onclick'=>'checkdelete()'])}}
+                                                            {{Form::close()}}
+
+                                                            @if($leave_data_value->status=='Active')
+                                                            {{Form::open(['url'=>"/leave/$leave_data_value->id" ,'method'=>'GET'])}}
+                                                            {{Form::submit('Inactive',['class'=>'btn btn-warning'])}}
+                                                            {{Form::close()}}
+                                                            @else
+                                                            {{Form::open(['url'=>"/leave/$leave_data_value->id" ,'method'=>'GET'])}}
+                                                            {{Form::submit('Active',['class'=>'btn btn-success'])}}
+                                                            {{Form::close()}}
+                                                            @endif  
+
+                                                          </div>
+                                                                </td>
                                                             </tr>
                                                     @endforeach
                                                     </tbody>

@@ -55,11 +55,11 @@ class LeaveController extends Controller
            $requested_data=$request->all();
            $requested_data=array_add($requested_data,'id',time());
            $leave_model->fill($requested_data)->save();
-           if($request->status=='Active'):
-              $this->notice($request->employee_phone,"Your Leave Request Accepted");
-           else:
-               $this->notice($request->employee_phone,"Your Leave Request On Pending");
-           endif;
+           // if($request->status=='Active'):
+           //    $this->notice($request->employee_phone,"Your Leave Request Accepted");
+           // else:
+           //     $this->notice($request->employee_phone,"Your Leave Request On Pending");
+           // endif;
            Session::flash('success','Leave Added Successfully');
            return back();
        }
@@ -73,7 +73,20 @@ class LeaveController extends Controller
      */
     public function show($id)
     {
-        //
+        //dd($id);
+        $leave_data=LeaveModel::where('id',$id)->first();
+        //eave_data);
+        if($leave_data->status=='Active')
+        {
+           $leave_data->update(['status'=>'Inactive']);
+        }
+        else
+        {
+           $leave_data->update(['status'=>'Active']);
+        }
+
+        Session::flash('success','Successfully Changes Status');
+        return back();
     }
 
     /**
@@ -84,7 +97,10 @@ class LeaveController extends Controller
      */
     public function edit($id)
     {
-        //
+
+        $leave=LeaveTypeModel::all();
+        $edit_data=LeaveModel::findorFail($id);
+        return view('Admin.Leave.Edit.leave_edit',['edit_data'=>$edit_data,'leave'=>$leave]);
     }
 
     /**
@@ -96,7 +112,10 @@ class LeaveController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        LeaveModel::where('id',$id)->first()->fill($request->all())->save();
+        Session::flash('success','Updated Successfully');
+        return back();
     }
 
     /**
@@ -107,7 +126,9 @@ class LeaveController extends Controller
      */
     public function destroy($id)
     {
-        //
+       LeaveModel::where('id',$id)->delete();
+       Session::flash('success','Successfully Deleted');
+       return back();
     }
 
     public function get_employee_data(Request $request)
