@@ -71,6 +71,8 @@ Route::post('/personal_details','NoticeBoardController@personal_details');
 
 //Payslip
 Route::resource('/payslip','PayslipController');
+
+Route::get('/preview/{id}','PayslipController@preview');
 Route::post('/department_employee','PayslipController@employee');
 
 
