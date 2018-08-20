@@ -16,6 +16,14 @@
                     </li>
                     <h3 class="menu-title">UI elements</h3><!-- /.menu-title -->
 
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Rbac</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-table"></i><a href="/admin">Admin</a></li>
+                            <li><i class="fa fa-table"></i><a href="/employee/create">EMPLOYEE LIST</a></li>
+                        </ul>
+                    </li>
+
                     <li>
                         <a href="/department"> <i class="menu-icon ti-notepad"></i>DEPARTMENT </a>
                     </li>
