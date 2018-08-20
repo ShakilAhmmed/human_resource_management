@@ -27,7 +27,7 @@
             "database/factories"
         ],
         "psr-4": {
-            "Horsefly\\": "app/"
+            "App\\": "app/"
         }
     },
     "autoload-dev": {

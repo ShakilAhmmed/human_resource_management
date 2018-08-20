@@ -30,6 +30,9 @@ Route::group(['middleware'=>'auth'],function(){
         Route::resource('/leave_type','LeaveTypeController');
     //end leavetype
 
+Route::get('/home','HomeController@index');
+
+
     //start leave
         Route::resource('/leave','LeaveController');
     //end leave
@@ -92,5 +95,7 @@ Auth::routes();
 
 //settings
 Route::resource('/settings','SettingsController');
+
+Route::resource('/admin','AdminController');
 
 

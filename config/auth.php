@@ -67,7 +67,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => Horsefly\User::class,
+            'model' => App\User::class,
         ],
 
         // 'users' => [
