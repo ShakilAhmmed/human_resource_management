@@ -1,5 +1,5 @@
 <?php
-namespace Horsefly\Observer;
+namespace App\Observer;
 use Illuminate\Support\Facades\Cache;
 class DepartmentObserver{
    public function saved()

@@ -1,11 +1,11 @@
 <?php
 
-namespace Horsefly\Http\Controllers;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Horsefly\DepartmentModel;
-use Horsefly\CompanyDetailsModel;
-use Horsefly\AttendanceModel;
+use App\DepartmentModel;
+use App\CompanyDetailsModel;
+use App\AttendanceModel;
 
 
 class AttendanceController extends Controller
