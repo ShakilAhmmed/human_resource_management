@@ -99,7 +99,7 @@
                     </li>
 
                      <li>
-                        <a href="widgets.html"> <i class="menu-icon ti-email"></i>SETTINGS </a>
+                        <a href="/settings"> <i class="menu-icon ti-email"></i>SETTINGS </a>
                     </li>
 
                      <li>
