@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class SettingsModel extends Model
 {
+
+    
   protected $table="settings_tbl";
     protected $primaryKey="id";
     protected $fillable=['syestem_name','syestem_title','address','phone','system_email','language','purchase_code','logo','id'];

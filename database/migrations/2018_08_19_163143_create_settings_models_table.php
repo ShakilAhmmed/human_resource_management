@@ -13,6 +13,7 @@ class CreateSettingsModelsTable extends Migration
      */
     public function up()
     {
+        
         Schema::create('settings_tbl', function (Blueprint $table) {
             $table->increments('id');
             $table->string('syestem_name');
@@ -23,7 +24,6 @@ class CreateSettingsModelsTable extends Migration
             $table->string('language');
             $table->string('purchase_code');
             $table->string('logo');
-
             $table->timestamps();
         });
     }

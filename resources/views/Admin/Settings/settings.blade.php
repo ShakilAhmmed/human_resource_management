@@ -12,9 +12,6 @@
     <p title="Transport Details">  Add Settings Details</p> <!-- Transport Details -->
 
      </div>
-
-
-
          <br>
      <div class="col-lg-12" style="width: 1509px;
     margin-left: 43px;
@@ -120,9 +117,7 @@
             </div>
             </div>
           <!--   end first tab -->
-            <!-- second-tab -->
-            
-                                </div>
+    s                          </div>
                             </div>
                        
 @stop

@@ -111,7 +111,6 @@ class SettingsController extends Controller
         }
 
          $model_object->where('id',$id)->first()->fill($request_data)->save();
-         //Session::flash('success','Update Data Successfully Complete');
          Toastr::success('Settings Updated', '', ["positionClass" => "toast-top-center"]);
          return back();
         }
