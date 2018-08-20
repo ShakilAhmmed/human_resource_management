@@ -1,9 +1,9 @@
 <?php
 
-namespace Horsefly\Http\Controllers;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Horsefly\TaskModel;
+use App\TaskModel;
 use Validator;
 use Session;
 
