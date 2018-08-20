@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'HUMAN RESOURCE MANAGEMENT'),
 
     /*
     |--------------------------------------------------------------------------
@@ -173,11 +173,11 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        Horsefly\Providers\AppServiceProvider::class,
+        Horsefly\Providers\AuthServiceProvider::class,
+        // Horsefly\Providers\BroadcastServiceProvider::class,
+        Horsefly\Providers\EventServiceProvider::class,
+        Horsefly\Providers\RouteServiceProvider::class,
 
     ],
 

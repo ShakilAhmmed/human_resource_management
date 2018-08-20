@@ -110,8 +110,7 @@
                 	  <!--   {{Form::hidden ('payslip_allowance_id',$allowances_fetchdata->payslip_allowance_id,['class'=>'form-control year','style'=>'width: 200px;margin-left:19px;'])}}  -->
                 	     <input type='hidden' class='form-control'  value="{{$allowances_fetchdata->payslip_allowance_id}}" name='payslip_allowance_id[]' style='margin-left: 21px;width: 194px;'/>
                     <td>
-                        <input type='text' class='form-control'  value="{{$allowances_fetchdata->allowances_type}}" name='allowances_type[]' style='margin-left: 21px;width: 194px;'/>
-                        akta biggapon da..hyto tur family member ra tur poricoy ta valo bolta parba..
+                        <input type='text' class='form-control'  value="{{$allowances_fetchdata->allowances_type}}" name='allowances_type[]' style='margin-left: 435px;width: 194px;'/>
                     </td>
                     <td>
                         <input type='text' class='form-control allowances_amount' id="allowances_amount" name='allowances_amount[]' value="{{$allowances_fetchdata->allowances_amount}}" style='margin-left: 21px;width: 194px;'/>
@@ -154,7 +153,7 @@
                 <!-- 	 {{Form::hidden ('payslip_deduction_id',$allowances_fetchdata->payslip_deduction_id,['class'=>'form-control year','style'=>'width: 200px;margin-left:19px;'])}}  -->
                 	   <input type='hidden' class='form-control'  value="{{$deductions_fetchdata->payslip_deduction_id}}" name='payslip_deduction_id[]' style='margin-left: 21px;width: 194px;'/>
                     <td>
-                        <input type='text' class='form-control' value="{{$deductions_fetchdata->deductions_type}}" name='deductions_type[]' style='margin-left: 21px;width: 194px;'/>
+                        <input type='text' class='form-control' value="{{$deductions_fetchdata->deductions_type}}" name='deductions_type[]' style='margin-left: 435px;width: 194px;'/>
                     </td>
                     <td>
                         <input type='text' class='form-control deductions_amount' value="{{$deductions_fetchdata->deductions_amount}}" name='deductions_amount[]' style='margin-left: 21px;width: 194px;'/>

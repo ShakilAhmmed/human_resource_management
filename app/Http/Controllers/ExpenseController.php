@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Horsefly\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\ExpenseModel;
+use Horsefly\ExpenseModel;
 Use Validator;
 use Session;
 

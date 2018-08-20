@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Horsefly\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\PersonalDetailsModel;
-use App\NoticeBoardModel;
-use App\LoginDetailsModel;
-use App\Mail\Notice;
+use Horsefly\PersonalDetailsModel;
+use Horsefly\NoticeBoardModel;
+use Horsefly\LoginDetailsModel;
+use Horsefly\Mail\Notice;
 use Session;
 use Validator;
 use SoapClient;
