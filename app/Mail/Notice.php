@@ -1,12 +1,12 @@
 <?php
 
-namespace Horsefly\Mail;
+namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Horsefly\NoticeBoardModel;
+use App\NoticeBoardModel;
 
 class Notice extends Mailable
 {

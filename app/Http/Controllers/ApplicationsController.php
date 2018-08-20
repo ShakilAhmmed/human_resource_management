@@ -1,10 +1,10 @@
 <?php
 
-namespace Horsefly\Http\Controllers;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Horsefly\DepartmentModel;
-use Horsefly\ApplicationsModel;
+use App\DepartmentModel;
+use App\ApplicationsModel;
 use Validator;
 use Session;
 
