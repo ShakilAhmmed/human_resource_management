@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 
-Route::get('/admin','HomeController@index');
+Route::get('/home','HomeController@index');
 
 
 Route::resource('/department','DepartmentController');
@@ -79,5 +79,7 @@ Route::post('/get_holiday','HolidayController@get_holiday');
 Route::post('/get_employee_data','LeaveController@get_employee_data');
 
 Route::resource('/award','AwardController');
+
+Route::resource('/admin','AdminController');
 
 

@@ -162,16 +162,16 @@
         },
         {
             "name": "egulias/email-validator",
-            "version": "2.1.4",
+            "version": "2.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/egulias/EmailValidator.git",
-                "reference": "8790f594151ca6a2010c6218e09d96df67173ad3"
+                "reference": "54859fabea8b3beecbb1a282888d5c990036b9e3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/8790f594151ca6a2010c6218e09d96df67173ad3",
-                "reference": "8790f594151ca6a2010c6218e09d96df67173ad3",
+                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/54859fabea8b3beecbb1a282888d5c990036b9e3",
+                "reference": "54859fabea8b3beecbb1a282888d5c990036b9e3",
                 "shasum": ""
             },
             "require": {
@@ -215,7 +215,7 @@
                 "validation",
                 "validator"
             ],
-            "time": "2018-04-10T10:11:19+00:00"
+            "time": "2018-08-16T20:49:45+00:00"
         },
         {
             "name": "erusev/parsedown",
@@ -2310,16 +2310,16 @@
         },
         {
             "name": "twilio/sdk",
-            "version": "5.21.1",
+            "version": "5.21.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twilio/twilio-php.git",
-                "reference": "b160d7d04fea6ad108120b064adac0015686d530"
+                "reference": "8487bc83b21079027e215c871548f54f40d4020f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twilio/twilio-php/zipball/b160d7d04fea6ad108120b064adac0015686d530",
-                "reference": "b160d7d04fea6ad108120b064adac0015686d530",
+                "url": "https://api.github.com/repos/twilio/twilio-php/zipball/8487bc83b21079027e215c871548f54f40d4020f",
+                "reference": "8487bc83b21079027e215c871548f54f40d4020f",
                 "shasum": ""
             },
             "require": {
@@ -2352,7 +2352,7 @@
                 "sms",
                 "twilio"
             ],
-            "time": "2018-08-09T17:01:55+00:00"
+            "time": "2018-08-18T00:10:57+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
