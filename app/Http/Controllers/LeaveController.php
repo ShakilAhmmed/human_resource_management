@@ -1,12 +1,12 @@
 <?php
 
-namespace Horsefly\Http\Controllers;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Horsefly\CompanyDetailsModel;
-use Horsefly\PersonalDetailsModel;
-use Horsefly\LeaveTypeModel;
-use Horsefly\LeaveModel;
+use App\CompanyDetailsModel;
+use App\PersonalDetailsModel;
+use App\LeaveTypeModel;
+use App\LeaveModel;
 use Validator;
 use Session;
 use SoapClient;

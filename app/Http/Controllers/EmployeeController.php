@@ -1,14 +1,14 @@
 <?php
 
-namespace Horsefly\Http\Controllers;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Horsefly\PersonalDetailsModel;
-use Horsefly\BankAccountDetailsModel;
-use Horsefly\CompanyDetailsModel;
-use Horsefly\LoginDetailsModel;
-use Horsefly\JobHistoryModel;
-use Horsefly\DocumentsModel;
+use App\PersonalDetailsModel;
+use App\BankAccountDetailsModel;
+use App\CompanyDetailsModel;
+use App\LoginDetailsModel;
+use App\JobHistoryModel;
+use App\DocumentsModel;
 use Validator;
 use Session;
 use File;
