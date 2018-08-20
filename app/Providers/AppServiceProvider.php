@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Providers;
+namespace Horsefly\Providers;
 
-use App\DesignationModel;
-use App\DepartmentModel;
-use App\Observer\DepartmentObserver;
-use App\Observer\DesignationObserver;
+use Horsefly\DesignationModel;
+use Horsefly\DepartmentModel;
+use Horsefly\Observer\DepartmentObserver;
+use Horsefly\Observer\DesignationObserver;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 

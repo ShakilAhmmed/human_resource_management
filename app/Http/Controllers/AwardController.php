@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Horsefly\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\PersonalDetailsModel;
-use App\CompanyDetailsModel;
-use App\AwardModel;
+use Horsefly\PersonalDetailsModel;
+use Horsefly\CompanyDetailsModel;
+use Horsefly\AwardModel;
 use Validator;
 use Session;
 class AwardController extends Controller

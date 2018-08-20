@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Horsefly\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\DepartmentModel;
-use App\CompanyDetailsModel;
-use App\PersonalDetailsModel;
-use App\PayslipBasicModel;
-use App\PayslipAllowanceModel;
-use App\PayslipDeductionModel;
+use Horsefly\DepartmentModel;
+use Horsefly\CompanyDetailsModel;
+use Horsefly\PersonalDetailsModel;
+use Horsefly\PayslipBasicModel;
+use Horsefly\PayslipAllowanceModel;
+use Horsefly\PayslipDeductionModel;
 use Session;
 use Validator;
 class PayslipController extends Controller
