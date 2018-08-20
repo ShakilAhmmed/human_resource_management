@@ -76,7 +76,10 @@ class AwardController extends Controller
      */
     public function edit($id)
     {
-        //
+        $edit_data=AwardModel::findOrFail($id);
+        $employee_data=PersonalDetailsModel::all();
+        $award_data=AwardModel::join('employee_personal_details','employee_personal_details.employee_personal_details_id','=','award.employee')->get();
+        return view('Admin.Award.Edit.award_edit',['edit_data'=>$edit_data,'employee_data'=>$employee_data,'award_data'=>$award_data]);
     }
 
     /**
@@ -88,7 +91,9 @@ class AwardController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        AwardModel::where('award_id',$id)->first()->fill($request->all())->save();
+        Session::flash('success','Updated SuccessFully');
+        return back();
     }
 
     /**

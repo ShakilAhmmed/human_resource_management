@@ -79,7 +79,7 @@
                                             {{Form::submit('DELETE',['class'=>'btn btn-danger','onclick'=>'checkdelete()'])}}
                                             {{Form::close()}}
 
-                                            {{Form::open(['url'=>"",'method'=>'GET'])}}
+                                            {{Form::open(['url'=>"/award/$award_data_value->award_id/edit",'method'=>'GET'])}}
                                             {{Form::submit('EDIT',['class'=>'btn btn-primary'])}}
                                             {{Form::close()}}
 
