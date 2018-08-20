@@ -27,6 +27,8 @@
     <script src="{{asset('admin_asset/assets/js/lib/data-table/buttons.print.min.js')}}"></script>
     <script src="{{asset('admin_asset/assets/js/lib/data-table/buttons.colVis.min.js')}}"></script>
     <script src="{{asset('admin_asset/assets/js/lib/data-table/datatables-init.js')}}"></script>
+
+     
     <script>
         ( function ( $ ) {
             "use strict";

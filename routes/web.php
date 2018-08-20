@@ -81,3 +81,7 @@ Route::post('/get_employee_data','LeaveController@get_employee_data');
 Route::resource('/award','AwardController');
 
 
+//settings
+Route::resource('/settings','SettingsController');
+
+
