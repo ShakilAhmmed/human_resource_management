@@ -103,7 +103,7 @@
                     </li>
 
                      <li>
-                        <a href="widgets.html"> <i class="menu-icon ti-email"></i>MESSAGE </a>
+                        <a href="/message"> <i class="menu-icon ti-email"></i>MESSAGE </a>
                     </li>
 
                      <li>
