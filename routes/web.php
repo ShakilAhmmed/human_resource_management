@@ -38,7 +38,8 @@ Route::group(['middleware'=>'auth'],function(){
 
     //Attendance Routes
         Route::resource('/attendance','AttendanceController');
-        Route::post('/get_employee_data','AttendanceController@get_employee_data');
+        Route::post('/attendance_employee_data','AttendanceController@attendance_employee_data');
+        Route::post('/attendance_data','AttendanceController@attendance_data');
     //End of Attendance Route
     //For RECRUITMENT Routes
         Route::resource('/vacancies','VacanciesController');
