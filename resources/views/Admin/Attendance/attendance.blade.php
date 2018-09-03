@@ -89,7 +89,8 @@
                   </td>
                 
                   <td>
-                    <input type='date' class='form-control' name='date'  class="date" id="date" style='margin-left: 21px;width: 194px;'/>
+                    <input type='date' class='form-control' name='date'  class="date" id="date" style='margin-left: 21px;width: 194px;'/> 
+
                   </td>
               
                  
@@ -156,7 +157,7 @@
       <thead>
         <tr>
           <th>Employee Code</th>
-          <th><?php echo date('d-m-Y') ?></th>
+          <th>Date</th>
         
         </tr>
       </thead>
@@ -186,16 +187,16 @@
 
           $("#date").unbind().change(function(){
                 var department_name=$("#department_name").val();
-                var date=$("#date").val();
-              
-                alert(department_name);
+                // var date=$("#date").val();
+           
               
                 $.ajax({
-                url:'/get_employee_data',
-                type:"post",
+                url:'/attendance_employee_data',
+                type:"POST",
                 data:{'department_name':department_name,'_token': $('input[name=_token]').val()},
                 success:function(r)
                 {
+              
                 console.log(r);
                     $("#student_data").html("");
                     for(i=0;i<r.length;i++)
