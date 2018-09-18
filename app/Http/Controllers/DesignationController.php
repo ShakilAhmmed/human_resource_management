@@ -1,9 +1,9 @@
 <?php
 
-namespace Horsefly\Http\Controllers;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Horsefly\DesignationModel;
+use App\DesignationModel;
 use Session;
 use Validator;
 use Illuminate\Support\Facades\Cache;

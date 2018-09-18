@@ -62,17 +62,17 @@ class AdminController extends Controller
      */
     public function show($id)
     {
-        $admin_data=AdminModel::where('id',$id)->first();
+       $admin_data=AdminModel::where('id',$id)->first();
         if($admin_data->status=='Active')
         {
-            $admin_data->update(['status'=='Inactive']);
+            $admin_data->update(['status'=>'Inactive']);
         }
         else
         {
-            $admin_data->update(['status'=='Active']);
+            $admin_data->update(['status'=>'Active']);
         }
 
-        Session::flash('success','SuccessFUlly Updated Status');
+        Session::flash('success','Status Updated');
         return back();
 
     }
@@ -99,8 +99,8 @@ class AdminController extends Controller
     public function update(Request $request, $id)
     {
         AdminModel::where('id',$id)->first()->fill($request->all())->save();
-        // Session::flash('success','SuccessFUlly Updated');
-        // return back();
+        Session::flash('success','SuccessFUlly Updated');
+        return back();
     }
 
     /**

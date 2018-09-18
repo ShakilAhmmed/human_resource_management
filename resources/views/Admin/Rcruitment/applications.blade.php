@@ -26,9 +26,11 @@
                                
                                      <!-- tab -->
                                         <ul class="nav nav-pills" id="myTab" role="tablist" style="    margin-left: 16px;" >
+                                          @permission('INSERT')
                                             <li class="nav-item">
                                                 <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true"><i class="fa fa-plus-circle" aria-hidden="true"></i> ADD APPLICATIONS</a>
                                             </li>
+                                            @endpermission
                                             <li class="nav-item">
                                                 <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false"><i class="fa fa-table" aria-hidden="true"></i> APPLICATIONS LIST</a>
                                             </li>
@@ -134,7 +136,9 @@
                                  <small class="form-text" style="color: red;">{{$errors->first('status')}}</small>
                                 </div>
                                    <div class="input-group input-icon right">
+                                    @permission('INSERT')
                                  {{Form::submit('Save',['class'=>'btn btn-success submit','style'=>'margin-bottom: 55px;margin-left: 101px;'])}}
+                                 @endpermission
                                 </div>
                             </div>
                     </div> 
@@ -358,14 +362,17 @@
                                                          
                                                           <td id="my_align" class="display_status">
                                                           <div style="display:inline-flex">
+                                                            @permission('EDIT')
                                                             {{Form::open(['url'=>"/applications/$all_data_fetch->id/edit" ,'method'=>'GET'])}}
                                                             {{Form::submit('Edit',['class'=>'btn btn-primary'])}}
                                                             {{Form::close()}}
-
+                                                            @endpermission
+                                                            @permission('DELETE')
                                                             {{Form::open(['url'=>"/applications/$all_data_fetch->id",'method'=>'DELETE'])}}
+
                                                            {{Form::submit('Delete',['class'=>'btn btn-danger','onclick'=>"return confirm('Are you sure you want to Remove ?')"])}}
                                                             {{Form::close()}}
-                                                          
+                                                          @endpermission
                                                          
                                                           </div>
                                                           </td>
@@ -422,13 +429,16 @@
                                                          
                                                           <td id="my_align" class="display_status">
                                                           <div style="display:inline-flex">
+                                                            @permission('INSERT')
                                                             {{Form::open(['url'=>"/applications/$all_data_fetch->id/edit" ,'method'=>'GET'])}}
                                                             {{Form::submit('Edit',['class'=>'btn btn-primary'])}}
                                                             {{Form::close()}}
-
+                                                            @endpermission
+                                                            @permission('DELETE')
                                                             {{Form::open(['url'=>"/applications/$all_data_fetch->id",'method'=>'DELETE'])}}
                                                            {{Form::submit('Delete',['class'=>'btn btn-danger','onclick'=>"return confirm('Are you sure you want to Remove ?')"])}}
                                                             {{Form::close()}}
+                                                            @endpermission
                                                           
                                                          
                                                           </div>
@@ -485,13 +495,16 @@
                                                          
                                                           <td id="my_align" class="display_status">
                                                           <div style="display:inline-flex">
+                                                            @permission('EDIT')
                                                             {{Form::open(['url'=>"/applications/$all_data_fetch->id/edit" ,'method'=>'GET'])}}
                                                             {{Form::submit('Edit',['class'=>'btn btn-primary'])}}
                                                             {{Form::close()}}
-
+                                                            @endpermission
+                                                            @permission('DELETE')
                                                             {{Form::open(['url'=>"/applications/$all_data_fetch->id",'method'=>'DELETE'])}}
                                                            {{Form::submit('Delete',['class'=>'btn btn-danger','onclick'=>"return confirm('Are you sure you want to Remove ?')"])}}
                                                             {{Form::close()}}
+                                                            @endpermission
                                                           
                                                          
                                                           </div>
@@ -548,14 +561,17 @@
                                                          
                                                           <td id="my_align" class="display_status">
                                                           <div style="display:inline-flex">
+                                                            @permission('EDIT')
                                                             {{Form::open(['url'=>"/applications/$all_data_fetch->id/edit" ,'method'=>'GET'])}}
                                                             {{Form::submit('Edit',['class'=>'btn btn-primary'])}}
                                                             {{Form::close()}}
+                                                            @endpermission
+                                                            @permission('DELETE')
 
                                                             {{Form::open(['url'=>"/applications/$all_data_fetch->id",'method'=>'DELETE'])}}
                                                            {{Form::submit('Delete',['class'=>'btn btn-danger','onclick'=>"return confirm('Are you sure you want to Remove ?')"])}}
                                                             {{Form::close()}}
-                                                          
+                                                          @endpermission
                                                          
                                                           </div>
                                                           </td>

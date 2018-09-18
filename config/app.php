@@ -166,6 +166,7 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         Brian2694\Toastr\ToastrServiceProvider::class,
+        Zizaco\Entrust\EntrustServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -231,7 +232,7 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
-    
+        'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
         'Toastr'  => Brian2694\Toastr\Facades\Toastr::class,
 
 
